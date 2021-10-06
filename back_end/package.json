@@ -1,0 +1,33 @@
+{
+  "name": "job_tracker",
+  "version": "1.0.0",
+  "description": "backend server for job_tracker webapp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickmfurbert/JobTracker.git"
+  },
+  "keywords": [
+    "OSU",
+    "Jobtracker",
+    "Webapp",
+    "React",
+    "Nodejs",
+    "Bootstrap"
+  ],
+  "author": "Joey Punzel and Patrick Furbert",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/patrickmfurbert/JobTracker/issues"
+  },
+  "homepage": "https://github.com/patrickmfurbert/JobTracker#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
