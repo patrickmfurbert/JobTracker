@@ -1,10 +1,9 @@
 // Authors: Joey Punzel, Patrick Furbert
 
 //get .env information
-require('dotenv').config()
+require('dotenv').config();
 
 // middleware
-require('dotenv').config()
 const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
@@ -20,5 +19,5 @@ const port = 3000;
 
 // Start express app
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Job Tracker Backend listening at http://localhost:${port}`);
 });
