@@ -39,7 +39,7 @@ export default function Login() {
                                     <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
                                 </form>
 
-                                <p className="mt-2">Don't have an account? <a href="#">Sign up</a></p>
+                                <p className="mt-2">Don't have an account? <a href="/">Sign up</a></p>
                             </div>
                         </div>
                     </>
