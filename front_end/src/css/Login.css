@@ -1,0 +1,8 @@
+#tracker{
+    width: 2em;
+}
+
+.login_logo {
+    display: flex;
+    justify-content: flex-start;
+}
