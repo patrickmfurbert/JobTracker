@@ -17,11 +17,18 @@ export default function Login() {
 
             return(
                     <>
-                        <div id="login_container">
-                            <form onSubmit={handleSubmit(submit)}>
-                            </form>
+                        <div id="login_container" class="card">
+                            <div className="card-body">
+                                <form onSubmit={handleSubmit(submit)}>
+                                    <label htmlFor="username" className="form-label">username</label>
+                                    <input type="text" name="username" id="username" className="form-control" />
 
-                            <h1>Whats up</h1>
+                                    <label htmlFor="password" className="form-label">password</label>
+                                    <input type="password" name="password" id="password" className="form-control"/>
+
+                                    <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
+                                </form>
+                            </div>
                         </div>
                     </>
             );
