@@ -19,7 +19,7 @@ export default function Login() {
             return(
                     <>
                         <div id="login_container" class="card">
-                            <div className="card-body m-4">
+                            <div className="card-body m-4 mb-0 pb-1">
 
                                 <div className="login_logo mb-3">
                                     <img src={tracker_icon} alt="tracker" id="tracker"/>
@@ -39,7 +39,9 @@ export default function Login() {
                                     <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
                                 </form>
 
-                                <p className="mt-2">Don't have an account? <a href="/">Sign up</a></p>
+                                <div className="sign_up mt-3">
+                                    <p>Don't have an account? <a href="/">Sign up</a></p>
+                                </div>
                             </div>
                         </div>
                     </>
