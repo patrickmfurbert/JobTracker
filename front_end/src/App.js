@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './components/Login.jsx';
+import Registration from './components/Registration.jsx';
+import { useState } from 'react';
+import './css/App.css';
 
-function App() {
+export default function App() {
+
+  const [displayLogin, setDisplayLogin] = useState(true)
+
+
+
+  const showRegistration = () => {
+    setDisplayLogin(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <div id="app_container">
+                  {displayLogin && <Login signup={()=>showRegistration}/>}
+                  {!displayLogin && <Registration/>}
+        </div>
+      </>
   );
 }
 
-export default App;
