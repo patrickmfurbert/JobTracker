@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import '../css/Login.css';
 import axios from 'axios';
 import tracker_icon from '../img/geo.svg';
+import showPwdImg from '../img/show_password.svg';
+import hidePwdImg from '../img/hide_password.svg';
 
 
 export default function Login({signup}) {
@@ -10,6 +12,7 @@ export default function Login({signup}) {
             const route = 'garbage';
 
             const {register, handleSubmit} = useForm();
+            const [isRevealPwd, setIsRevealPwd] = useState(false);
 
             const submit = async data => {
                 console.log(data);
@@ -34,7 +37,14 @@ export default function Login({signup}) {
                                     <input type="text" name="username" id="username" className="form-control" />
 
                                     <label htmlFor="password" className="form-label">password</label>
-                                    <input type="password" name="password" id="password" className="form-control"/>
+
+                                    <div className="pwd-container">
+                                        <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"/>
+                                        <img title={isRevealPwd ? "Hide password" : "Show password"}
+                                        src={isRevealPwd ? hidePwdImg : showPwdImg}
+                                        onClick={() => setIsRevealPwd(prevState => !prevState)}
+                                        />
+                                    </div>
 
                                     <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
                                 </form>
