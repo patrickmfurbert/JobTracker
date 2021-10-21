@@ -9,11 +9,14 @@ import hidePwdImg from '../img/hide_password.svg';
 
 export default function Login({signup}) {
 
+            // post route
             const route = 'garbage';
 
+            // hooks: useState and useForm
             const {register, handleSubmit} = useForm();
             const [isRevealPwd, setIsRevealPwd] = useState(false);
 
+            // callback for posting data to backend
             const submit = async data => {
                 console.log(data);
             }
@@ -47,7 +50,7 @@ export default function Login({signup}) {
                                 <form onSubmit={handleSubmit(submit)}>
 
                                     <label htmlFor="username" className="form-label">username</label>
-                                    <input type="text" name="username" id="username" className="form-control" />
+                                    <input type="email" name="username" id="username" className="form-control" />
 
                                     <label htmlFor="password" className="form-label">password</label>
                                     <div className="pwd-container">
