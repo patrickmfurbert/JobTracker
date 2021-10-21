@@ -5,7 +5,7 @@ import axios from 'axios';
 import tracker_icon from '../img/geo.svg';
 
 
-export default function Login() {
+export default function Login({signup}) {
 
             const route = 'garbage';
 
@@ -40,7 +40,7 @@ export default function Login() {
                                 </form>
 
                                 <div className="sign_up mt-3">
-                                    <p>Don't have an account? <a href="/">Sign up</a></p>
+                                    <p>Don't have an account? <span id="signup_link" onClick={signup(false)}>Sign up</span></p>
                                 </div>
                             </div>
                         </div>
