@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../css/Registration.css';
+import showPwdImg from '../img/show_password.svg';
+import hidePwdImg from '../img/hide_password.svg';
 
 
 export default function Registration() {
@@ -8,8 +10,9 @@ export default function Registration() {
         // post route
         const route = 'garbage';
 
-        // use form hook
+        // useform and useState hooks
         const {register, handleSubmit} = useForm();
+        const [isRevealPwd, setIsRevealPwd] = useState(false);
 
 
             return(
@@ -18,7 +21,7 @@ export default function Registration() {
                         <div className="registration_container card">
 
                         {/* Inner Container for Registration */}
-                                <div className="inner_registration card-body">
+                                <div className="inner_registration card-body m-4">
 
                                 {/* Title */}
                                 <h1 className="display-6">Register New Account </h1>
@@ -40,7 +43,12 @@ export default function Registration() {
 
                                         {/* Password */}
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" name="password" id="password" className="form-control"/>
+                                        <div className="pwd-container">
+                                                <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"/>
+                                                <img title={isRevealPwd ? "Hide password" : "Show password"}
+                                                src={isRevealPwd ? hidePwdImg : showPwdImg}
+                                                onClick={() => setIsRevealPwd(prevState => !prevState)}/>
+                                        </div>
 
                                         {/* Submit */}
                                         <input type="submit" value="Register" className="btn btn-dark mt-4 form-control"/>
