@@ -21,23 +21,35 @@ export default function Login({signup}) {
 
             return(
                     <>
+
+                        {/* Containers for the login */}
+
                         <div id="login_container" class="card">
+
                             <div className="card-body m-4 mb-0 pb-1">
 
+                                {/* Logo Area */}
+
                                 <div className="login_logo mb-3">
+
+                                    {/* location pin icon */}
+
                                     <img src={tracker_icon} alt="tracker" id="tracker"/>
 
                                     <h1 className="display-6 mb-0 ms-2" id="jobtracker_h1">
                                     Job Tracker
                                     </h1>
+
                                 </div>
 
+                                {/* Submit Form */}
+
                                 <form onSubmit={handleSubmit(submit)}>
+
                                     <label htmlFor="username" className="form-label">username</label>
                                     <input type="text" name="username" id="username" className="form-control" />
 
                                     <label htmlFor="password" className="form-label">password</label>
-
                                     <div className="pwd-container">
                                         <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"/>
                                         <img title={isRevealPwd ? "Hide password" : "Show password"}
@@ -47,11 +59,13 @@ export default function Login({signup}) {
                                     </div>
 
                                     <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
+
                                 </form>
 
-                                <div className="sign_up mt-3">
-                                    <p>Don't have an account? <span id="signup_link" onClick={signup(false)}>Sign up</span></p>
-                                </div>
+                                    <div className="sign_up mt-3">
+                                        <p>Don't have an account? <span id="signup_link" onClick={signup(false)}>Sign up</span></p>
+                                    </div>
+
                             </div>
                         </div>
                     </>
