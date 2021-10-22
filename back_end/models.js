@@ -14,5 +14,10 @@ const ApplicationSchema = new mongoose.Schema({
   description: String
 })
 
-module.exports = mongoose.model('user', UserSchema)
-module.exports = mongoose.model('jobapp', ApplicationSchema)
+const users = mongoose.model('user', UserSchema);
+const jobapps = mongoose.model('jobapp', ApplicationSchema);
+
+module.exports = {
+  users: users,
+  jobapps: jobapps
+}
