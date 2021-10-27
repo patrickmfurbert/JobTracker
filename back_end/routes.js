@@ -53,7 +53,7 @@ router.post("/jobapps", async (req, res) => {
         return res.status(400).send({ error: "Data not formatted properly" });
     }
 
-    // createing a new mongoose doc from app data
+    // creating a new mongoose doc from app data
     const jobapp = new jobapps({
         user_id: req.body.user_id,
         company: req.body.company,
@@ -75,7 +75,7 @@ router.get('/users/:uid/jobapps', function(req, res) {
                 res.status(200).send(result);
             }
             else {
-                res.status(404).json({ "error": "jobapp_id does not exist"});
+                res.status(404).json({ "error": "user_id does not exist"});
             }
         });
 });
@@ -84,7 +84,12 @@ router.get('/users/:uid/jobapps', function(req, res) {
 router.get('/jobapps/:jobapp_id', function(req, res) {
     jobapps.findById(req.params.jobapp_id)
         .then((result) => {
-            res.status(200).send(result);
+            if(result !== null) {
+                res.status(200).send(result);
+            }
+            else {
+                res.status(404).json({ "error": "jobapp_id does not exist" });
+            }
         }, error => {
             res.status(404).json({ "error": "jobapp_id does not exist" });
         });
