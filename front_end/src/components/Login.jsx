@@ -15,17 +15,22 @@ export default function Login({signup}) {
             // hooks: useState and useForm
             const {register, handleSubmit} = useForm();
             const [isRevealPwd, setIsRevealPwd] = useState(false);
+            const [isInValidLogin, setIsValidLogin] = useState(false);
 
             // callback for posting data to backend
             const submit = async data => {
                 console.log(data);
                 try {
                     var res = await axios.post(route, data);
-                    console.log(res)
+                    console.log(res);
+
+
                 } catch (error) {
-                    console.log(error)
+                    setIsValidLogin(true);
+                    console.log(error);
                 }                        
             }
+
 
             return(
                     <>
@@ -65,6 +70,8 @@ export default function Login({signup}) {
                                         onClick={() => setIsRevealPwd(prevState => !prevState)}
                                         />
                                     </div>
+
+                                    {isInValidLogin && <div className="text-danger">Invalid Username or Password</div>}
 
                                     <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
 
