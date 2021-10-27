@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 const ApplicationSchema = new mongoose.Schema({
-  email: String,
+  user_id: String,
   company: String,
   role: String,
   application_date: String, 
