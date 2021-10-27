@@ -10,7 +10,7 @@ import hidePwdImg from '../img/hide_password.svg';
 export default function Login({signup}) {
 
             // post route
-            const route = 'garbage';
+            const route = 'http://localhost:5000/auth/login';
 
             // hooks: useState and useForm
             const {register, handleSubmit} = useForm();
@@ -19,8 +19,13 @@ export default function Login({signup}) {
             // callback for posting data to backend
             const submit = async data => {
                 console.log(data);
+                try {
+                    var res = await axios.post(route, data);
+                    console.log(res)
+                } catch (error) {
+                    console.log(error)
+                }                        
             }
-
 
             return(
                     <>
@@ -50,11 +55,11 @@ export default function Login({signup}) {
                                 <form onSubmit={handleSubmit(submit)}>
 
                                     <label htmlFor="username" className="form-label">username</label>
-                                    <input type="email" name="username" id="username" className="form-control" />
+                                    <input type="email" name="username" id="username" className="form-control" {...register("email")}/>
 
                                     <label htmlFor="password" className="form-label">password</label>
                                     <div className="pwd-container">
-                                        <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"/>
+                                        <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control" {...register("password")}/>
                                         <img title={isRevealPwd ? "Hide password" : "Show password"}
                                         src={isRevealPwd ? hidePwdImg : showPwdImg}
                                         onClick={() => setIsRevealPwd(prevState => !prevState)}
