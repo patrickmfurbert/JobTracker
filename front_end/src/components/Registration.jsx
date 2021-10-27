@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../css/Registration.css';
 import showPwdImg from '../img/show_password.svg';
