@@ -3,7 +3,7 @@ import CUSTOM_NAV from './Custom_Nav.jsx';
 import NEW_APP from './New_App.jsx';
 import '../css/MainApp.css';
 
-export default function MainApp(){
+export default function MainApp({currentUser}){
 
         return(
 
@@ -12,7 +12,7 @@ export default function MainApp(){
                         {/* Navigation */}
                         <CUSTOM_NAV/>
                         <div id="MainApp_Inner">
-                            <NEW_APP/>
+                            <NEW_APP currentUser={currentUser}/>
                         </div>
                     </div>
 
