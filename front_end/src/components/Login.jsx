@@ -16,6 +16,7 @@ export default function Login({signup}) {
             const {register, handleSubmit} = useForm();
             const [isRevealPwd, setIsRevealPwd] = useState(false);
             const [isInValidLogin, setIsValidLogin] = useState(false);
+            
 
             // callback for posting data to backend
             const submit = async data => {
@@ -68,6 +69,7 @@ export default function Login({signup}) {
                                         <img title={isRevealPwd ? "Hide password" : "Show password"}
                                         src={isRevealPwd ? hidePwdImg : showPwdImg}
                                         onClick={() => setIsRevealPwd(prevState => !prevState)}
+                                        alt="..."
                                         />
                                     </div>
 
@@ -83,6 +85,7 @@ export default function Login({signup}) {
 
                             </div>
                         </div>
+
                     </>
             );
 }
