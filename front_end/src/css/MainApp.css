@@ -2,3 +2,11 @@
     height: 100vh;
     width: 100vw;
 }
+
+#MainApp_Inner{
+    margin        : 0;
+    padding       : 0;
+    display       : grid;
+    place-content : center;
+    min-height    : 100vh;
+}

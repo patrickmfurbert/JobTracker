@@ -8,10 +8,10 @@ export default function Custom_Nav(){
         return(
 
                 <>
-                    <Navbar bg="light" expand={false}>
+                    <Navbar bg="dark" variant="dark" expand={false}>
                         <Container fluid>
 
-                            <Navbar.Brand href="#">Job Tracker</Navbar.Brand>
+                            <Navbar.Brand>Job Tracker</Navbar.Brand>
                             <Navbar.Toggle aria-controls="offcanvasNavbar" />
                             <Navbar.Offcanvas
                             id="offcanvasNavbar"
@@ -25,8 +25,8 @@ export default function Custom_Nav(){
                             </Offcanvas.Header>
                             <Offcanvas.Body>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link>Add Job Application</Nav.Link>
-                                <Nav.Link>Lookup Job Applications</Nav.Link>
+                                <Nav.Link>Add Application</Nav.Link>
+                                <Nav.Link>Current Applications</Nav.Link>
                                 </Nav>
 
                             </Offcanvas.Body>
