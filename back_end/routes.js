@@ -7,7 +7,6 @@ const {jobapps} = require("./models");
 const router = express.Router();
 // signup route
 router.post("/auth/signup", async (req, res) => {
-    console.log(req.body);
 
     if (!(req.body.email && req.body.password)) {
         return res.status(400).send({ error: "Data not formatted properly" });
@@ -56,6 +55,8 @@ router.post("/auth/login", async (req, res) => {
 
 // create application 
 router.post("/jobapps", async (req, res) => {
+    console.log(req.body);
+
     if (!(req.body.user_id && req.body.company && req.body.role && req.body.application_date && req.body.location && req.body.description)) {
         return res.status(400).send({ error: "Data not formatted properly" });
     }

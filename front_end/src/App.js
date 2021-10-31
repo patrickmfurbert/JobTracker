@@ -8,7 +8,7 @@ export default function App() {
 
   const [displayLogin, setDisplayLogin] = useState(true);
   const [displayApp, setDisplayApp] = useState(false);
-  const [currentUser, setCurrentUser] = useState('');
+  const [user_id, setCurrentUser] = useState('');
 
   const showRegistration = () => {
     setDisplayLogin(!displayLogin);
@@ -29,7 +29,7 @@ export default function App() {
         <div id="app_container">
                   {!displayApp && displayLogin && <Login signup={()=>showRegistration} loggedin={showApp} currentUser={setUser}/>}
                   {!displayApp && !displayLogin && <Registration signup={()=>showRegistration}/>}
-                  {displayApp && <MainApp currentUser={currentUser}/>}
+                  {displayApp && <MainApp user_id={user_id}/>}
         </div>
       </>
   );

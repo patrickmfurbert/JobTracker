@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 import '../css/New_App.css';
 
 
-export default function New_App({currentUser}){
+export default function New_App({user_id}){
+
+        // post route
+        const route = 'http://localhost:5000/jobapps';
 
         const {register, handleSubmit} = useForm();
 
         const submit = async data => {
-            console.log(data);
-            modify_data(data);
+            try {
+                    var res = axios.post(route, {user_id, ...data});
+                    console.log(res);
+                
+            } catch (error) {
+                    console.log(error);
+            }
         }
 
-        const modify_data = (data) => {
-            let new_data = {currentUser, ...data};
-            console.log(new_data);
 
-        }
 
         return(
 
@@ -37,7 +41,7 @@ export default function New_App({currentUser}){
 
                             {/* Company */}
                             <label htmlFor="company">Company</label>
-                            <input type="text" name="company" id="company" className="form-control" {...register("name")}/>
+                            <input type="text" name="company" id="company" className="form-control" {...register("company")}/>
 
                             {/* Role */}
 
