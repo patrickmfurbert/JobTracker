@@ -10,14 +10,14 @@ export default function App() {
 
 
   const showRegistration = () => {
-    setDisplayLogin(false);
+    setDisplayLogin(!displayLogin);
   }
 
   return (
       <>
         <div id="app_container">
                   {displayLogin && <Login signup={()=>showRegistration}/>}
-                  {!displayLogin && <Registration/>}
+                  {!displayLogin && <Registration signup={()=>showRegistration}/>}
         </div>
       </>
   );

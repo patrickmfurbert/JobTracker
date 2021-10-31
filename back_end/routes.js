@@ -7,9 +7,16 @@ const {jobapps} = require("./models");
 const router = express.Router();
 // signup route
 router.post("/auth/signup", async (req, res) => {
+    console.log(req.body);
 
     if (!(req.body.email && req.body.password)) {
         return res.status(400).send({ error: "Data not formatted properly" });
+    }
+
+    const check = await users.findOne({ email: req.body.email });
+
+    if(check) {
+        return res.status(400).send({error: "email already taken"});
     }
 
     // createing a new mongoose doc from user data

@@ -80,7 +80,7 @@ export default function Login({signup}) {
                                 </form>
 
                                     <div className="sign_up mt-3">
-                                        <p>Don't have an account? <span id="signup_link" onClick={signup(false)}>Sign up</span></p>
+                                        <p>Don't have an account? <span id="signup_link" onClick={signup()}>Sign up</span></p>
                                     </div>
 
                             </div>
