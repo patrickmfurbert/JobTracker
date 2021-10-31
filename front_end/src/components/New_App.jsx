@@ -6,6 +6,12 @@ import '../css/New_App.css';
 
 export default function New_App(){
 
+        const {register, handleSubmit} = useForm();
+
+        const submit = async data => {
+            console.log("garbage");
+        }
+
         return(
 
                 <>
@@ -15,8 +21,13 @@ export default function New_App(){
                         {/* Inner Container for New Application */}
                         <div className="inner_new_app card-body m-4">
 
+                            {/* Title */}
                             <h1 className="display-6">Add Job Application</h1>
                         
+                            {/* Form */}
+                            <form onSubmit={handleSubmit(submit)}>
+                            
+                            </form>
 
                         </div>
 

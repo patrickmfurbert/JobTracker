@@ -7,7 +7,7 @@ import showPwdImg from '../img/show_password.svg';
 import hidePwdImg from '../img/hide_password.svg';
 
 
-export default function Login({signup, loggedin}) {
+export default function Login({signup, loggedin, currentUser}) {
 
             // post route
             const route = 'http://localhost:5000/auth/login';
@@ -25,6 +25,7 @@ export default function Login({signup, loggedin}) {
                     var res = await axios.post(route, data);
                     console.log(res);
                     if(res.data.message === "Valid password"){
+                        currentUser(data.email);
                         loggedin();
                         console.log("you logged in");
                     } 
