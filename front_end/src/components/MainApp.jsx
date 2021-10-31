@@ -11,9 +11,8 @@ export default function MainApp({user_id}){
                     <div id="MainAppContainer">
                         {/* Navigation */}
                         <CUSTOM_NAV/>
-                        <div id="MainApp_Inner">
-                            <NEW_APP user_id={user_id}/>
-                        </div>
+                        <NEW_APP user_id={user_id}/>
+                        
                     </div>
 
                 </>

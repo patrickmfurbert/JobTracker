@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 impport {Card, Button } from 'react-bootstrap'
 
 
-export default function Job_App(){
+export default function Job_App({user_id, company, role, application_date, location, description}){
 
         // implement function to delete application
 
@@ -12,14 +12,15 @@ export default function Job_App(){
 
                 <>
                     <Card>
-                        <Card.Header as="h5">Featured</Card.Header>
-                        
+                        <Card.Header as="h5">Facebook</Card.Header>
                         <Card.Body>
-                            <Card.Title>Special title treatment</Card.Title>
+                            <Card.Title>Junior Dev 10/2/21</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Location</Card.Subtitle>
                             <Card.Text>
-                            With supporting text below as a natural lead-in to additional content.
+                            The Job description
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button variant="secondary">update</Button>
+                            <Button varient="dark">delete</Button>
                         </Card.Body>
                     </Card>
                 </>

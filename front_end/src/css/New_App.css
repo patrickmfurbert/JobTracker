@@ -1,0 +1,7 @@
+#new_app_canvas {
+    margin        : 0;
+    padding       : 0;
+    display       : grid;
+    place-content : center;
+    min-height    : 100vh;
+}
