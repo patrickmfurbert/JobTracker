@@ -12,6 +12,12 @@ router.post("/auth/signup", async (req, res) => {
         return res.status(400).send({ error: "Data not formatted properly" });
     }
 
+    const check = await users.findOne({ email: req.body.email });
+
+    if(check) {
+        return res.status(400).send({error: "email already taken"});
+    }
+
     // createing a new mongoose doc from user data
     const user = new users({
         email: req.body.email,
@@ -49,6 +55,8 @@ router.post("/auth/login", async (req, res) => {
 
 // create application 
 router.post("/jobapps", async (req, res) => {
+    console.log(req.body);
+
     if (!(req.body.user_id && req.body.company && req.body.role && req.body.application_date && req.body.location && req.body.description)) {
         return res.status(400).send({ error: "Data not formatted properly" });
     }
