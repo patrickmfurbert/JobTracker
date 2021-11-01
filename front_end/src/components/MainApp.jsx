@@ -24,7 +24,7 @@ export default function MainApp({user_id, signup}){
                         {/* Sub Components */}
 
                             
-                            {(display === "current_apps") && <CURRENT_APPS/>}                        
+                            {(display === "current_apps") && <CURRENT_APPS user_id={user_id}/>}                        
 
                             {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
 

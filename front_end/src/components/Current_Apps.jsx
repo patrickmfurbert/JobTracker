@@ -1,15 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import JOB_APP from './Job_App.jsx';
 import '../css/Current_Apps.css';
+import axios from 'axios';
 
 
-export default function Current_Apps(){
+export default function Current_Apps({user_id}){
 
-        let my_array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let route = `http://localhost:5000/users/${user_id}/jobapps`;
 
-        componentDidMount(){
-            
-        }
+        const [apps, setApps] = useState([]);
+
+        useEffect(async ()=>{
+            try {
+                 var res = await axios.get(route);
+                 console.log(res);
+                 setApps(res.data);
+
+            } catch (error) {
+                console.log(error);
+
+            }
+        }, []);
 
         return(
 
@@ -18,8 +29,13 @@ export default function Current_Apps(){
 
                     <div id="current_apps_canvas">
 
-                        {my_array.map(()=><JOB_APP/>)}
+                        {/* {my_array.map(()=><JOB_APP/>)} */}
 
+                        {
+                        apps.map( app => (
+                            <JOB_APP key={app._id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description}/>
+                        ))
+                        }
                     </div>
                 </>
 

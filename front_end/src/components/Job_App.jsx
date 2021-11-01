@@ -14,12 +14,12 @@ export default function Job_App({user_id, company, role, application_date, locat
                 <>
                     <div className="job_app_container">
                         <Card>
-                            <Card.Header as="h5">Facebook</Card.Header>
+                            <Card.Header as="h5">{company}</Card.Header>
                             <Card.Body>
-                                <Card.Title>Junior Dev 10/2/21</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Location</Card.Subtitle>
+                                <Card.Title>{role} {application_date}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{location}</Card.Subtitle>
                                 <Card.Text>
-                                The Job description
+                                {description}
                                 </Card.Text>
                                 <Button className="m-1" variant="secondary">update</Button>
                                 <Button className="m-1" variant="dark">delete</Button>
