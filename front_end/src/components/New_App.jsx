@@ -27,6 +27,8 @@ export default function New_App({user_id}){
         return(
 
                 <>
+                {/* Component Container */}
+                <div id="new_app_canvas">
                     {/* Container for New Application */}
                     <div className="new_app_container card">
 
@@ -73,6 +75,8 @@ export default function New_App({user_id}){
                         </div>
 
                     </div>
+
+                </div>
 
                 </>
 

@@ -77,6 +77,7 @@ router.post("/jobapps", async (req, res) => {
 
 // get all applications by user id 
 router.get('/users/:uid/jobapps', function(req, res) {
+    console.log(req.params)
     jobapps.find({user_id: req.params.uid})
         .then((result) => {
             if (result.length !== 0) {

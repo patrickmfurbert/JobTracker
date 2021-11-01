@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CUSTOM_NAV from './Custom_Nav.jsx';
 import NEW_APP from './New_App.jsx';
+import CURRENT_APPS from './Current_Apps.jsx';
 import '../css/MainApp.css';
 
-export default function MainApp({user_id}){
+export default function MainApp({user_id, signup}){
+
+        const [display, setDisplay] = useState("current_apps");
+
+        const changeDisplay = function (name) {
+            setDisplay(name);
+        }
 
         return(
 
                 <>
+                    {/* Main App Canvas */}
                     <div id="MainAppContainer">
+
                         {/* Navigation */}
-                        <CUSTOM_NAV/>
-                        <div id="MainApp_Inner">
-                            <NEW_APP user_id={user_id}/>
-                        </div>
+                        <CUSTOM_NAV signup={signup} update_mainapp={changeDisplay}/>
+
+                        {/* Sub Components */}
+
+                            
+                            {(display === "current_apps") && <CURRENT_APPS user_id={user_id}/>}                        
+
+                            {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
+
+
                     </div>
 
                 </>
