@@ -29,7 +29,7 @@ export default function App() {
         <div id="app_container">
                   {!displayApp && displayLogin && <Login signup={()=>showRegistration} loggedin={showApp} currentUser={setUser}/>}
                   {!displayApp && !displayLogin && <Registration signup={()=>showRegistration}/>}
-                  {displayApp && <MainApp user_id={user_id}/>}
+                  {displayApp && <MainApp user_id={user_id} signup={()=>showApp}/>}
         </div>
       </>
   );

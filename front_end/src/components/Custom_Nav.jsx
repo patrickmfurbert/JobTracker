@@ -3,7 +3,7 @@ import { Navbar, Offcanvas, Nav, Container} from 'react-bootstrap';
 import React from 'react';
 
 
-export default function Custom_Nav(){
+export default function Custom_Nav({signup}){
 
         return(
 
@@ -25,8 +25,11 @@ export default function Custom_Nav(){
                             </Offcanvas.Header>
                             <Offcanvas.Body>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link>Add Application</Nav.Link>
                                 <Nav.Link>Current Applications</Nav.Link>
+                                <Nav.Link>Add Application</Nav.Link>
+                                <Nav.Link onClick={signup()}>Logout</Nav.Link>
+
+
                                 </Nav>
 
                             </Offcanvas.Body>

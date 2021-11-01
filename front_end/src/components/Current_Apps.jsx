@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import JOB_APP from './Job_App.jsx';
 import '../css/Current_Apps.css';
 
