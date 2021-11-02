@@ -3,9 +3,11 @@ build/Release
 
 # Nodejs
 back_end/node_modules/
+back_end/cert
 
 # React
 front_end/node_modules
+front_end/build
 
 # dotenv environment variables file
 .env

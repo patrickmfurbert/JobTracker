@@ -8,7 +8,7 @@ import '../css/New_App.css';
 export default function New_App({user_id}){
 
         // post route
-        const route = 'http://localhost:5000/jobapps';
+        const route = 'http://149.28.113.234:5000/jobapps';
 
         const {register, handleSubmit} = useForm();
 
