@@ -1,12 +1,24 @@
 import React from 'react';
 import {Card, Button } from 'react-bootstrap';
 import '../css/Job_App.css';
+import axios from 'axios';
 
 
-export default function Job_App({user_id, company, role, application_date, location, description}){
+export default function Job_App({app_id, user_id, company, role, application_date, location, description, updateMal}){
+
+        // route for deleting app
+        const route = `http://149.28.113.234:5000/jobapps/${app_id}`;
 
         // implement function to delete application
-
+        const delete_app = async () => {
+            try {
+                var res = await axios.delete(route);
+                console.log(res);
+                updateMal();
+            } catch (error) {
+                console.log(error);
+            }
+        }
         // implmenet function to modify application
 
         return(
@@ -22,7 +34,7 @@ export default function Job_App({user_id, company, role, application_date, locat
                                 {description}
                                 </Card.Text>
                                 <Button className="m-1" variant="secondary">update</Button>
-                                <Button className="m-1" variant="dark">delete</Button>
+                                <Button onClick={delete_app} className="m-1" variant="dark">delete</Button>
                             </Card.Body>
                         </Card>
                     </div>
