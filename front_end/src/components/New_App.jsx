@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+import CUSTOM_ALERT from './Custom_Alert.jsx';
 import '../css/New_App.css';
 
 
@@ -12,17 +13,37 @@ export default function New_App({user_id}){
 
         const {register, handleSubmit} = useForm();
 
+        const [submission_error, setSubmissionError] = useState(false);
+
+        const success = () => setSubmissionError(false);
+        const fail = () => setSubmissionError(true);
+
+        const [show_alert, setShowAlert] = useState(false);
+
         const submit = async data => {
             try {
                     var res = axios.post(route, {user_id, ...data});
                     console.log(res);
+                    success();
+                    setShowAlert(true);
                 
             } catch (error) {
                     console.log(error);
-            }
+                    fail();
+                    setShowAlert(true);
+                }
         }
 
+        //alert messages
+        const success_message = {
+            header: "Success",
+            body: "Application succesfully submitted"
+        }
 
+        const error_message = {
+                header: "Opps",
+                body: "THere was a problem with submission"
+        }
 
         return(
 
@@ -34,6 +55,9 @@ export default function New_App({user_id}){
 
                         {/* Inner Container for New Application */}
                         <div className="inner_new_app card-body m-4">
+
+                            {/* Alert */}
+                            {show_alert && (submission_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={()=> setShowAlert(false)} message={success_message}/>)}
 
                             {/* Title */}
                             <h1 className="display-6">Add Job Application</h1>

@@ -62,6 +62,7 @@ export default function Registration({signup}) {
                         {/* Inner Container for Registration */}
                                 <div className="inner_registration card-body m-4">
 
+                                {/* Alert */}
                                 {show_alert && (registration_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={() => setShowAlert(false)} message={success_message}/>)}
 
                                 {/* Title */}
