@@ -62,7 +62,7 @@ router.post("/signup", async (req, res) => {
                 });
 
                 if (count !== 0) {
-                    return res.status(403).send('{ "Error": "An account with this email already exists - Please try a new email." }');                    
+                    return res.status(403).json('{ "Error": "An account with this email already exists - Please try a new email." }');                    
                 }
                 else {
                     // email does not exist, continue
@@ -118,11 +118,11 @@ router.post("/login", async (req, res) => {
                         res.status(200).send('{ "Success": "Valid Password" }');
                     }
                     else {
-                        res.status(400).send('{ "Error": "Password is incorrect" }'); 
+                        res.status(400).send('{ "Error": "Email and/or Password is incorrect" }'); 
                     }
                 }
                 else {
-                    res.status(401).send('{ "Error": "Email is incorrect" }'); 
+                    res.status(400).send('{ "Error": "Email and/or Password is incorrect" }'); 
                 }
 
             });
