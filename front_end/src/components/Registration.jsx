@@ -11,7 +11,7 @@ import CUSTOM_ALERT from './Custom_Alert.jsx';
 export default function Registration({signup}) {
 
         // post route
-        const route = 'http://149.28.113.234:5000/auth/signup';
+        const route = 'https://jobtracker467.uc.r.appspot.com/auth/signup';
 
         // useform and useState hooks
         const {register, handleSubmit} = useForm();

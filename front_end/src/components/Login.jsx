@@ -10,7 +10,7 @@ import hidePwdImg from '../img/hide_password.svg';
 export default function Login({signup, loggedin, currentUser}) {
 
             // post route
-            const route = 'http://149.28.113.234:5000/auth/login';
+            const route = 'https://jobtracker467.uc.r.appspot.com/auth/login';
 
             // hooks: useState and useForm
             const {register, handleSubmit} = useForm();

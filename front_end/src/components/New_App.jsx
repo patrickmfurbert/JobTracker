@@ -9,7 +9,7 @@ import '../css/New_App.css';
 export default function New_App({user_id}){
 
         // post route
-        const route = 'http://149.28.113.234:5000/jobapps';
+        const route = 'https://jobtracker467.uc.r.appspot.com/jobapps';
 
         const {register, handleSubmit} = useForm();
 

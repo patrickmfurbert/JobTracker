@@ -19,7 +19,7 @@ export default function Current_Apps({user_id}){
         useEffect(()=>{
 
             // route for getting job apps
-            let route = `http://149.28.113.234:5000/users/${user_id}/jobapps`;
+            let route = `https://jobtracker467.uc.r.appspot.com/users/${user_id}/jobapps`;
 
             const getApps = async () => {
                 try {

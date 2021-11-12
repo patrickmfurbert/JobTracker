@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function Job_App({app_id, user_id, company, role, application_date, location, description, updateMal}){
 
         // route for deleting app
-        const route = `http://149.28.113.234:5000/jobapps/${app_id}`;
+        const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
 
         // implement function to delete application
         const delete_app = async () => {
