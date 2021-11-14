@@ -19,11 +19,12 @@ export default function Current_Apps({user_id}){
         useEffect(()=>{
 
             // route for getting job apps
-            let route = `https://jobtracker467.uc.r.appspot.com/users/${user_id}/jobapps`;
+            let route = `https://jobtracker467.uc.r.appspot.com/jobapps/users/${user_id}`;
 
             const getApps = async () => {
                 try {
                     var res = await axios.get(route);
+                    console.log("getting current apps")
                     console.log(res);
                     setApps(res.data);
     
