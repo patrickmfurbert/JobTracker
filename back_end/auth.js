@@ -23,7 +23,7 @@ function create_user(email, password) {
 async function get_all_emails () {
     const query = datastore.createQuery(USERS);
     const [user_list] = await datastore.runQuery(query);
-    return user_list;
+    return user_list.map(ds.fromDatastore);
 }
 
 function get_user(user_id) {
@@ -62,7 +62,7 @@ router.post("/signup", async (req, res) => {
                 });
 
                 if (count !== 0) {
-                    return res.status(403).send('{ "Error": "An account with this email already exists - Please try a new email." }');                    
+                    return res.status(403).json('{ "Error": "An account with this email already exists - Please try a new email." }');                    
                 }
                 else {
                     // email does not exist, continue
@@ -100,7 +100,8 @@ router.post("/login", async (req, res) => {
     else {
         // verify email
         var count = 0;
-        var hashed_password = "nada"; 
+        var uid = "";
+        var hashed_password = ""; 
         get_all_emails()
             .then(async (result) => {
                 //var count = 0;
@@ -109,20 +110,25 @@ router.post("/login", async (req, res) => {
                         // user found, now verify password 
                         count = count + 1;
                         hashed_password = user.password;
+                        uid = user.id;
                     }
                 });
 
                 if (count !== 0) {
                     const validPassword = await bcrypt.compare(req.body.password, hashed_password);
                     if (validPassword) {
-                        res.status(200).send('{ "Success": "Valid Password" }');
+                        var response = {
+                            id: uid, 
+                            state: "Success"
+                        };
+                        res.status(200).json(response);
                     }
                     else {
-                        res.status(400).send('{ "Error": "Password is incorrect" }'); 
+                        res.status(400).send('{ "Error": "Email and/or Password is incorrect" }'); 
                     }
                 }
                 else {
-                    res.status(401).send('{ "Error": "Email is incorrect" }'); 
+                    res.status(400).send('{ "Error": "Email and/or Password is incorrect" }'); 
                 }
 
             });
