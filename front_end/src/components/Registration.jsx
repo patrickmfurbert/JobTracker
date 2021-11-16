@@ -11,7 +11,7 @@ import CUSTOM_ALERT from './Custom_Alert.jsx';
 export default function Registration({signup}) {
 
         // post route
-        const route = 'http://149.28.113.234:5000/auth/signup';
+        const route = 'https://jobtracker467.uc.r.appspot.com/auth/signup';
 
         // useform and useState hooks
         const {register, handleSubmit} = useForm();
@@ -62,6 +62,7 @@ export default function Registration({signup}) {
                         {/* Inner Container for Registration */}
                                 <div className="inner_registration card-body m-4">
 
+                                {/* Alert */}
                                 {show_alert && (registration_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={() => setShowAlert(false)} message={success_message}/>)}
 
                                 {/* Title */}
