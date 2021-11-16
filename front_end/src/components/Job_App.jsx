@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Card, Button } from 'react-bootstrap';
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { GrDocumentUpdate } from 'react-icons/gr'
 import '../css/Job_App.css';
 import axios from 'axios';
+import CUSTOM_MODAL from './Custom_Modal.jsx'
 
 
 export default function Job_App({app_id, user_id, company, role, application_date, location, description, updateMal}){
@@ -21,7 +22,12 @@ export default function Job_App({app_id, user_id, company, role, application_dat
                 console.log(error);
             }
         }
-        // implmenet function to modify application
+        // implement function to modify application
+
+        // Modal
+        const [show, setShow] = useState(false);
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
 
         return(
 
@@ -32,11 +38,19 @@ export default function Job_App({app_id, user_id, company, role, application_dat
                             <Card.Body>
                                 <Card.Title>{role}</Card.Title>
                                <Card.Subtitle className="mb-2 text-muted">{location}</Card.Subtitle>
-                                <Button title="Update App" className="m-1" variant="secondary"><GrDocumentUpdate/></Button>
+
+                               {/* Buttons */}
+
+                               {/* Update App */}
+                                <Button title="Update App" onClick={handleShow} className="m-1" variant="secondary"><GrDocumentUpdate/></Button>
+
+                                {/* Delete App */}
                                 <Button title="Delete App" onClick={delete_app} className="m-1" variant="secondary"><FaRegTrashAlt/></Button>
                             </Card.Body>
                         </Card>
                     </div>
+
+                    <CUSTOM_MODAL show={show} handleClose={handleClose}/>
                 </>
 
         );

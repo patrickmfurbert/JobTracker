@@ -3,15 +3,15 @@ import { Modal } from 'react-bootstrap';
 
 
 
-export default function Custom_Modal({show, handleClose, message, exit}) {
+export default function Custom_Modal({show, handleClose}) {
 
             return(
                     <>
-                          <Modal show={show} onHide={handleClose} onExited={exit}>
+                          <Modal show={show} onHide={handleClose} >
                             <Modal.Header closeButton>
-                            <Modal.Title>{message.header}</Modal.Title>
+                            <Modal.Title>YO</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>{message.body}</Modal.Body>
+                            <Modal.Body>what up</Modal.Body>
                         </Modal>
                     </>
             );
