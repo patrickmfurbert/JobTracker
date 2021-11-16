@@ -39,10 +39,22 @@ export default function Current_Apps({user_id}){
         }, [user_id, malEffect]);
 
 
+        let style = {
+            // style="height:2px; width:50%; border-width:0; color:red; background-color:red"
+            height: '1px',
+            width: '92%',
+            color: 'black',
+            'margin-left': 'auto',
+            'margin-right': 'auto'
+        }
+
         return(
 
                 <>
                     {/* Canvas for Current Apps */}
+
+                     <h1 className="display-6 mt-4 mb-4" id="current_apps_title">Current Applications</h1>
+                     <hr style={style}/>
 
                     <div id="current_apps_canvas">
 

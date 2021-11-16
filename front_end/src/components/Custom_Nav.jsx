@@ -12,6 +12,8 @@ export default function Custom_Nav({signup, update_mainapp}){
                         <Container fluid>
 
                             <Navbar.Brand>Job Tracker</Navbar.Brand>
+
+
                             <Navbar.Toggle aria-controls="offcanvasNavbar" />
                                 <Navbar.Offcanvas
                                 id="offcanvasNavbar"
