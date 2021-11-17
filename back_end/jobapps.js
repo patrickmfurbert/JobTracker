@@ -12,6 +12,11 @@ router.use(bodyParser.json());
 
 /* -------------Begin Model Functions ------------- */
 
+function fromDatastore(item){
+    item.id = item[datastore.KEY].id;
+    return item;
+}
+
 function create_jobapp (user_id, company, role, application_date, location, description, skills, contacts) {
     var key = datastore.key(JOBAPPS);
     const new_job = { 
