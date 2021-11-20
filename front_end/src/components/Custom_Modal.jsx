@@ -50,6 +50,15 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                     body: "THere was a problem with the update"
             }
 
+            // Skills update
+            const [job_skills, updateJobSkills] = useState([]);
+
+            //add skills to job_skills
+            const addSkills = new_skill => updateJobSkills(job_skills.push(new_skill));
+
+            // remove jobskill
+            const removeSkill = old_skill => updateJobSkills(skills.filter(item => item !== old_skill));
+
             return(
                     <>
                           <Modal show={show} onHide={handleClose} centered>
@@ -116,7 +125,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                     {/* skills input group */}
                                                     <InputGroup className="mb-3">
                                                       {/* add button icon */}
-                                                      <Button variant="dark" size="sm">
+                                                      <Button variant="dark" size="sm" onClick={addSkills}>
                                                         <VscAdd/>
                                                       </Button>
                                                           <FormControl
