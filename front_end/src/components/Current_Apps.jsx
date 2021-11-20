@@ -61,7 +61,7 @@ export default function Current_Apps({user_id}){
 
                         {
                         apps.map( app => (
-                            <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} updateMal={updateApps}/>
+                            <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps}/>
                         ))
                         }
                     </div>

@@ -7,14 +7,13 @@ import CUSTOM_ALERT from './Custom_Alert.jsx';
 
 
 
-export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, updateMal}) {
+export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, skills, contacts, updateMal}) {
 
             // route for deleting app
             const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
 
             // useForm hook for updating 
             const {register, handleSubmit} = useForm();
-
             const [submission_error, setSubmissionError] = useState(false);
 
             // update UI on success or failure
@@ -126,11 +125,8 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                     </InputGroup>
                                                   </Card.Subtitle>
 
-
                                             </Card>
-
                                         </Col>
-
                                     </Row>
 
                                   </Container>
