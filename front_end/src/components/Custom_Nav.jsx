@@ -29,6 +29,8 @@ export default function Custom_Nav({signup, update_mainapp}){
                                         <Nav className="justify-content-end flex-grow-1 pe-3">
                                             <Nav.Link onClick={() => update_mainapp("current_apps")}>Current Applications</Nav.Link>
                                             <Nav.Link onClick={()=>update_mainapp("new_app")}>Add Application</Nav.Link>
+                                            <Nav.Link>Skills</Nav.Link>
+                                            <Nav.Link>Contacts</Nav.Link>
                                             <Nav.Link onClick={signup()}>Logout</Nav.Link>
                                         </Nav>
                                     </Offcanvas.Body>
