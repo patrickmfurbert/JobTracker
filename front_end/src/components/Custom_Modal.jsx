@@ -5,6 +5,7 @@ import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl
 import { VscAdd } from 'react-icons/vsc';
 import { CgCloseO } from 'react-icons/cg';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
+import '../css/Custom_Modal.css';
 
 
 
@@ -149,7 +150,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                   </Card.Subtitle>
 
                                                   {
-                                                    job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO onClick={()=>removeSkill(skill)}/></Badge> ))
+                                                    job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO className="badge_close" onClick={()=>removeSkill(skill)}/></Badge> ))
                                                   }
 
                                             </Card>
