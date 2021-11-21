@@ -27,10 +27,8 @@ export default function Current_Apps({user_id}){
                     console.log("getting current apps")
                     console.log(res);
                     setApps(res.data);
-    
                } catch (error) {
                    console.log(error);
-    
                }
             }
             
@@ -57,7 +55,6 @@ export default function Current_Apps({user_id}){
                      <hr style={style}/>
 
                     <div id="current_apps_canvas">
-
 
                         {
                         apps.map( app => (

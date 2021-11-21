@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { VscAdd } from 'react-icons/vsc';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
 
@@ -51,10 +51,19 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             }
 
             // Skills update
+            const [skill_text, setSkillText] = useState("");
             const [job_skills, updateJobSkills] = useState([]);
 
+            const handleOnChange = event => {
+              setSkillText(event.target.value);
+              // console.log(skill_text);
+              }
+
             //add skills to job_skills
-            const addSkills = new_skill => updateJobSkills(job_skills.push(new_skill));
+            const addSkills = () => {
+                updateJobSkills(job_skills.push(skill_text));
+                console.log(job_skills);
+              }
 
             // remove jobskill
             const removeSkill = old_skill => updateJobSkills(skills.filter(item => item !== old_skill));
@@ -118,7 +127,6 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                           {/* Skills */}
                                           <Card body bg="secondary" text="white" className="mt-3">
 
-
                                             <Card.Title>Skills</Card.Title>
 
                                                   <Card.Subtitle>
@@ -130,9 +138,12 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                       </Button>
                                                           <FormControl
                                                             placeholder="New Skill"
+                                                            onChange={handleOnChange}
                                                           />
                                                     </InputGroup>
                                                   </Card.Subtitle>
+
+                                                  {job_skills.map(skill => <Badge>skill</Badge>)}
 
                                             </Card>
                                         </Col>
@@ -140,7 +151,6 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                   </Container>
                                   {/* End container */}
-
 
                                     {/* Form Submit Button */}
                                    <div className="d-grid gap-2 mt-3">
