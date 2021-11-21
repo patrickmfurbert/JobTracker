@@ -27,8 +27,9 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             // async submit function
             const submit = async data => {
               try {
-                console.log({user_id, ...data});
-                var res = await axios.put(route, {user_id, ...data});
+                let skills = job_skills;
+                console.log({user_id, skills, ...data});
+                var res = await axios.put(route, {user_id, skills, ...data});
                 console.log(res);
                 updateMal();
                 success();
@@ -54,11 +55,10 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
             // Skills update
             const [skill_text, setSkillText] = useState("");
-            const [job_skills, updateJobSkills] = useState([]);
+            const [job_skills, updateJobSkills] = useState(skills ? [...skills] : []);
 
             const handleOnChange = event => {
               setSkillText(event.target.value);
-              // console.log(skill_text);
               }
 
             //add skills to job_skills

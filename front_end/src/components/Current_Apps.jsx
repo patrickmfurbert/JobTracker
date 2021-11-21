@@ -38,7 +38,6 @@ export default function Current_Apps({user_id}){
 
 
         let style = {
-            // style="height:2px; width:50%; border-width:0; color:red; background-color:red"
             height: '1px',
             width: '92%',
             color: 'black',
