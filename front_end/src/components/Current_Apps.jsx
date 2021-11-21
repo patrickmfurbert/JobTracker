@@ -42,8 +42,8 @@ export default function Current_Apps({user_id}){
             height: '1px',
             width: '92%',
             color: 'black',
-            'margin-left': 'auto',
-            'margin-right': 'auto'
+            'marginLeft': 'auto',
+            'marginRight': 'auto'
         }
 
         return(
