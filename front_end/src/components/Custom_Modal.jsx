@@ -149,7 +149,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                   </Card.Subtitle>
 
                                                   {
-                                                    job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO onClick={(skill)=>removeSkill(skill)}/></Badge> ))
+                                                    job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO onClick={()=>removeSkill(skill)}/></Badge> ))
                                                   }
 
                                             </Card>
