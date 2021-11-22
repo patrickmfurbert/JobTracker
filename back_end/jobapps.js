@@ -177,6 +177,47 @@ router.get('/users/:user_id', function(req, res) {
     });
 });
 
+
+// get all jobskills identified in jobApps by user id . output key/value like nodejs: 10
+router.get('/users/:user_id/skills', function(req, res) {
+    get_user(req.params.user_id)
+    .then(result => {
+        if (result[0] === undefined || result[0] === null) {
+            // Not found
+            res.status(404).json({ 'Error': 'No user with this user_id exists' });
+        } 
+        else {
+            // Found, print boat details
+            get_all_jobapps_per_user(req.params.user_id)
+                .then(result2 => {
+                    var all_skills = [];
+
+                    for(let x in result2) {
+                        if (result2[x].skills !== undefined || result2.skills !== null) {
+                            var skills_to_add = result2[x].skills;
+                            for (let y in skills_to_add) {
+                                all_skills.push(skills_to_add[y]);
+                            }                            
+
+                        }
+                    }
+
+                    // below logic to find # unique skills sourced from: 
+                    // https://stackoverflow.com/questions/37821172/unique-counts-in-javascript-array-sorted-by-counts
+                    var counts = all_skills.reduce((counts, name) => {
+                        counts[name] = (counts[name] || 0) + 1;
+                        return counts;
+                      }, {});
+                      
+                      var uniques = Object.keys(counts);
+                      uniques.sort((a, b) => counts[a] == counts[b] ? a.localeCompare(b) : counts[b] - counts[a]);
+
+                    return res.status(200).json(counts);
+                });
+        }
+    });
+});
+
 // modify jobapp 
 router.put('/:jobapp_id', function(req,res) {
     // verify all required attributes present, skills/contacts optional 
