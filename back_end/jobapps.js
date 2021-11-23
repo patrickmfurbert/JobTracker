@@ -39,8 +39,9 @@ function create_jobapp (user_id, company, role, application_date, location, desc
 async function get_all_jobapps_per_user (user_id) {
     const query = datastore.createQuery(JOBAPPS).filter('user_id','=',user_id);
     //query = query;
-    const [user_list] = await datastore.runQuery(query);
-    return user_list;
+    return datastore.runQuery(query).then((entities) => {
+        return entities[0].map(fromDatastore);
+    });
 }
 
 
@@ -248,6 +249,7 @@ router.put('/:jobapp_id', function(req,res) {
                                     const [my_job] = result3;
 
                                     const modified = {
+                                        jobapp_id: req.params.jobapp_id,
                                         user_id: my_job.user_id,
                                         company: my_job.company,
                                         role: my_job.role,
