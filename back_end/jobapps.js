@@ -172,21 +172,7 @@ router.get('/users/:user_id', function(req, res) {
             // Found, print boat details
             get_all_jobapps_per_user(req.params.user_id)
                 .then(result2 => {
-                    //console.log(result2);
-                    const [jobs] = result2;
-                    const myJobs = {
-                        "description": jobs.description,
-                        "location": jobs.location,
-                        "company": jobs.company, 
-                        "application_date": jobs.application_date,
-                        "role": jobs.role, 
-                        "user_id": jobs.user_id,
-                        "skills": jobs.skills, 
-                        "contacts": jobs.contacts,
-                        "id": jobs.id
-                    }
-
-                    return res.status(200).json(myJobs);
+                    return res.status(200).json(result2);
                 });
         }
     });
