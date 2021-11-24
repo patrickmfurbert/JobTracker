@@ -29,7 +29,7 @@ export default function MainApp({user_id, signup}){
 
                             {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
 
-                            {(display === "skills") && <h1>SKILLz</h1>}
+                            {(display === "skills") && <SKILLS user_id={user_id}/>}
 
                             {(display === "contacts") && <h1>ContactZ</h1>}
 
