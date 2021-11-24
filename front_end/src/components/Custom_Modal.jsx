@@ -63,9 +63,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
             //add skills to job_skills
             const addSkills = () => {
-
                 updateJobSkills( prev => [...prev, skill_text] );
-
               }
 
             // remove jobskill

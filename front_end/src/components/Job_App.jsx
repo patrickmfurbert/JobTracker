@@ -34,9 +34,9 @@ export default function Job_App({app_id, user_id, company, role, application_dat
                 <>
                     <div className="job_app_container">
                         <Card bg='dark' text='white'>
-                            <Card.Header as="h4">{company}</Card.Header>
+                            <Card.Header as="h6">{company}</Card.Header>
                             <Card.Body>
-                                <Card.Title>{role}</Card.Title>
+                                <Card.Title as="h7">{role}</Card.Title>
                                <Card.Subtitle className="mb-2 text-muted">{location}</Card.Subtitle>
 
                                {/* Buttons */}
