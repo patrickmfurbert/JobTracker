@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge } from 'react-bootstrap';
+import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge, Accordion } from 'react-bootstrap';
 import { VscAdd } from 'react-icons/vsc';
 import { CgCloseO } from 'react-icons/cg';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
@@ -124,12 +124,9 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                         {/* right column */}
                                         <Col>
-                                          {/* Contacts */}
-                                          <Card body bg="secondary" text="white">
-                                            Contacts
-                                          </Card>
+
                                           {/* Skills */}
-                                          <Card body bg="secondary" text="white" className="mt-3">
+                                          <Card body bg="secondary" text="white" >
 
                                             <Card.Title>Skills</Card.Title>
 
@@ -152,6 +149,17 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                   }
 
                                             </Card>
+
+                                                                                      {/* Contacts */}
+                                          <Card body bg="secondary" text="white" className="mt-3">
+                                            
+                                            <Card.Title>
+                                              Contacts
+                                            </Card.Title>
+                                            <Card.Subtitle>
+                                              <Button className="mt-1" variant="dark" size="sm">Add Contact</Button>
+                                            </Card.Subtitle>
+                                          </Card>
                                         </Col>
                                     </Row>
 
