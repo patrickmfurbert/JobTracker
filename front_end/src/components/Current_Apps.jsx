@@ -50,7 +50,7 @@ export default function Current_Apps({user_id}){
                 <>
                     {/* Canvas for Current Apps */}
 
-                     <h1 className="display-6 mt-4 mb-4" id="current_apps_title">Current Applications</h1>
+                     <h1 className="display-6 mt-4 mb-4" id="current_apps_title">Applications</h1>
                      <hr style={style}/>
 
                     <div id="current_apps_canvas">
