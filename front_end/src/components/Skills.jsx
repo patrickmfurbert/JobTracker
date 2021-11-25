@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Card } from 'react-bootstrap';
 import '../css/Skills.css';
 
 export default function Skills({user_id}){
@@ -33,31 +34,38 @@ export default function Skills({user_id}){
     return(
         <>
                     
-                        { (my_data.length !== 0) &&
-                        
-                        <div id="chart_container">
-                            <ResponsiveContainer width="50%" height="50%">
-                            <BarChart
-                              width={500}
-                              height={300}
-                              data={my_data}
-                              margin={{
-                                top: 5,
-                                right: 30,
-                                left: 20,
-                                bottom: 5,
-                              }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="name" />
-                              <YAxis />
-                              <Tooltip />
-                              <Legend />
-                              <Bar dataKey="amount" fill="#8884d8" />
-                            </BarChart>
-                            </ResponsiveContainer>
-                        </div>
-                                        }
+            <div id="skills_canvas">
+                { (my_data.length !== 0) &&
+                
+                    <Card className="text-center">
+                        <Card.Body>
+                            <Card.Title>Required Skills</Card.Title>
+                            <div id="chart_container">
+                                <BarChart
+                                layout="horizontal"
+                                width={600}
+                                height={400}
+                                data={my_data}
+                                margin={{
+                                    top: 5,
+                                    right: 30,
+                                    left: 20,
+                                    bottom: 5,
+                                }}
+                                >
+                                <CartesianGrid horizontal={false} vertical={false} strokeDasharray="3 3" />
+                                <XAxis dataKey="name" />
+                                <YAxis allowDecimals={false}/>
+                                <Tooltip />
+                                {/* <Legend /> */}
+                                <Bar dataKey="amount" fill="#38a187" />
+                                </BarChart>
+                            </div>
+                        </Card.Body>
+                    </Card>
+
+                    }   
+                </div>
                     
                     
         </>
