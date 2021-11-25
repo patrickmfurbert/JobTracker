@@ -1,4 +1,6 @@
 .job_app_container{
-
-    max-height: 20em;
+    min-width: 13em;
+    max-width: 13em;
+    min-height: 10em;
+    max-height: 10em;
 }

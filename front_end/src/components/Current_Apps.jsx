@@ -6,9 +6,6 @@ import axios from 'axios';
 
 export default function Current_Apps({user_id}){
 
-        // route for getting job apps
-        // let route = `http://149.28.113.234:5000/users/${user_id}/jobapps`;
-
         const [apps, setApps] = useState([]);
         const [malEffect, setMalEffect] = useState(true)
 

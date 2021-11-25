@@ -31,8 +31,19 @@ export default function Skills({user_id}){
         getSkills();
     }, []);
 
+    let style = {
+            height: '1px',
+            width: '92%',
+            color: 'black',
+            'marginLeft': 'auto',
+            'marginRight': 'auto'
+        }
+
     return(
         <>
+
+            <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
+            <hr style={style}/>
                     
             <div id="skills_canvas">
                 { (my_data.length !== 0) &&
@@ -58,7 +69,7 @@ export default function Skills({user_id}){
                                 <YAxis allowDecimals={false}/>
                                 <Tooltip />
                                 {/* <Legend /> */}
-                                <Bar dataKey="amount" fill="#38a187" />
+                                <Bar dataKey="amount" fill="#323834" />
                                 </BarChart>
                             </div>
                         </Card.Body>
