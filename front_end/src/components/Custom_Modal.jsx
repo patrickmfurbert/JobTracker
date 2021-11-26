@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { VscAdd } from 'react-icons/vsc';
 import { CgCloseO } from 'react-icons/cg';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
@@ -186,7 +186,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                   </Card.Subtitle>
 
                                                   {
-                                                    job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO className="badge_close" onClick={()=>removeSkill(skill)}/></Badge> ))
+                                                    (job_skills.length !== 0 ) && job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO className="badge_close" onClick={()=>removeSkill(skill)}/></Badge> ))
                                                   }
 
                                             </Card>
@@ -214,6 +214,10 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                            
 
                                             </Card.Subtitle>
+
+                                            {
+                                              (my_contacts.length !== 0) && my_contacts.map()
+                                            }
                                           </Card>
 
  
