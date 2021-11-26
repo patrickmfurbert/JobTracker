@@ -29,7 +29,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
               try {
                 let skills = job_skills;
                 console.log({user_id, skills, ...data});
-                var res = await axios.put(route, {user_id, skills, ...data});
+                var res = await axios.put(route, {user_id, skills, my_contacts, ...data});
                 console.log(res);
                 updateMal();
                 success();
@@ -78,6 +78,11 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
             const addContact = () => {
                 updateContacts(prev => [...prev, {name: contactName, email: contactEmail, role: contactRole, comment: contactComment}]);
+            }
+
+            const removeContact = old_contact => {
+              console.log(old_contact);
+              updateContacts(my_contacts.filter(item => item !== old_contact))
             }
 
             const [contactName, setContactName] = useState("");
@@ -186,7 +191,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                   </Card.Subtitle>
 
                                                   {
-                                                    (job_skills.length !== 0 ) && job_skills.map( skill => ( <Badge bg="dark" className="m-1" key={skill}>{skill} <CgCloseO className="badge_close" onClick={()=>removeSkill(skill)}/></Badge> ))
+                                                    (job_skills.length !== 0 ) && job_skills.map( (skill, index) => ( <Badge bg="dark" className="m-1" key={index}>{skill} <CgCloseO className="badge_close" onClick={()=>removeSkill(skill)}/></Badge> ))
                                                   }
 
                                             </Card>
@@ -211,20 +216,18 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                               <Button variant="dark" size="sm" onClick={addNewContact}>Add Contact</Button>
                                             </InputGroup>
 
-                                           
-
                                             </Card.Subtitle>
 
                                             {
-                                              (my_contacts.length !== 0) && my_contacts.map()
+                                              (my_contacts.length !==0) && my_contacts.map(
+                                                (contact, index) => (<Badge bg="dark" className="m-1" key={index}>
+                                                 { `${contact.name} ${contact.email} ` }<CgCloseO onClick={()=>removeContact(contact)} className="badge_close"/>
+                                                </Badge>)
+                                              )
                                             }
                                           </Card>
-
- 
                                         </Col>
-
                                     </Row>
-
                                   </Container>
 
 
