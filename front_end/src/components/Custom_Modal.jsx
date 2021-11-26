@@ -66,12 +66,19 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                 updateJobSkills( prev => [...prev, skill_text] );
               }
 
-            // remove jobskill
+            // remove jobskill = function to remove the job skill
             const removeSkill = old_skill => {
               console.log(old_skill);
               updateJobSkills(job_skills.filter(item => item !== old_skill));
             }
 
+
+            //contact information
+            const [my_contacts, updateContacts] = useState(contacts ? [...contacts] : []);
+
+            const addContact = () => {
+                updateContacts(prev => [...prev, {name: contactName, email: contactEmail, role: contactRole, comment: contactComment}]);
+            }
 
             const [contactName, setContactName] = useState("");
             const [contactEmail, setContactEmail] = useState("");
@@ -94,8 +101,10 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
               setContactComment(event.target.value);
             }
 
-            const contactInfo = () => {
+            const addNewContact = () => {
               console.log(`Name: ${contactName}\nEmail: ${contactEmail}\nRole: ${contactRole}\nComment: ${contactComment}`);
+              addContact();
+              console.log(my_contacts);
             }
 
 
@@ -199,7 +208,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                             <InputGroup size="sm" className="mb-3">
                                               <FormControl aria-label="Role" placeholder="Role" onChange={handleContactRoleOnChange}/>
                                               <FormControl aria-label="Comment"  placeholder="Comment" onChange={handleContactCommentOnChange}/>
-                                              <Button variant="dark" size="sm" onClick={contactInfo}>Add Contact</Button>
+                                              <Button variant="dark" size="sm" onClick={addNewContact}>Add Contact</Button>
                                             </InputGroup>
 
                                            
