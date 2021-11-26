@@ -28,8 +28,9 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             const submit = async data => {
               try {
                 let skills = job_skills;
-                console.log({user_id, skills, ...data});
-                var res = await axios.put(route, {user_id, skills, my_contacts, ...data});
+                let contacts = my_contacts
+                console.log({user_id, skills, contacts, ...data});
+                var res = await axios.put(route, {user_id, skills, contacts, ...data});
                 console.log(res);
                 updateMal();
                 success();
@@ -229,7 +230,9 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                         {contact.name}
                                                       </Popover.Header>
                                                       <Popover.Body>
-                                                        {`Email: ${contact.email}\nRole: ${contact.role}\nComment: ${contact.comment}`}
+                                                        <p>{`Email: ${contact.email}`}</p>
+                                                        <p>{`Role: ${contact.role}`}</p>
+                                                        <p>{`Comment: ${contact.comment}`}</p>
                                                       </Popover.Body>
                                                   </Popover>
                                                   }
