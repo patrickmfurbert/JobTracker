@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge } from 'react-bootstrap';
+import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge, OverlayTrigger, Popover } from 'react-bootstrap';
 import { VscAdd } from 'react-icons/vsc';
 import { CgCloseO } from 'react-icons/cg';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
@@ -40,7 +40,6 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                 setShowAlert(true);
               }
             }
-
 
             //success and error object alert messages
             const success_message = {
@@ -220,9 +219,27 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                             {
                                               (my_contacts.length !==0) && my_contacts.map(
-                                                (contact, index) => (<Badge bg="dark" className="m-1" key={index}>
-                                                 { `${contact.name} ${contact.email} ` }<CgCloseO onClick={()=>removeContact(contact)} className="badge_close"/>
-                                                </Badge>)
+                                                (contact, index) => (
+                                                
+                                                <OverlayTrigger
+                                                  placement="right"
+                                                  overlay={
+                                                    <Popover id="popover-basic">
+                                                      <Popover.Header as="h3">
+                                                        {contact.name}
+                                                      </Popover.Header>
+                                                      <Popover.Body>
+                                                        {`Email: ${contact.email}\nRole: ${contact.role}\nComment: ${contact.comment}`}
+                                                      </Popover.Body>
+                                                  </Popover>
+                                                  }
+                                                >
+                                                  <Badge bg="dark" className="m-1" key={index}>
+                                                   { `${contact.name} ` }<CgCloseO onClick={()=>removeContact(contact)} className="badge_close"/>
+                                                  </Badge>
+                                                </OverlayTrigger>
+                                                
+                                                )
                                               )
                                             }
                                           </Card>
