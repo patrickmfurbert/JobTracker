@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge, Accordion } from 'react-bootstrap';
+import { Modal, Form, Button, Card, Container, Row, Col, InputGroup, FormControl, Badge, OverlayTrigger, Popover } from 'react-bootstrap';
 import { VscAdd } from 'react-icons/vsc';
 import { CgCloseO } from 'react-icons/cg';
 import CUSTOM_ALERT from './Custom_Alert.jsx';
@@ -72,9 +72,37 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
               updateJobSkills(job_skills.filter(item => item !== old_skill));
             }
 
+
+            const [contactName, setContactName] = useState("");
+            const [contactEmail, setContactEmail] = useState("");
+            const [contactRole, setContactRole] = useState("");
+            const [contactComment, setContactComment] = useState("");
+
+            const handleContactNameOnChange = event => {
+              setContactName(event.target.value);
+            }
+
+            const handleContactEmailOnChange = event => {
+              setContactEmail(event.target.value);
+            }
+
+            const handleContactRoleOnChange = event => {
+              setContactRole(event.target.value);
+            }
+
+            const handleContactCommentOnChange = event => {
+              setContactComment(event.target.value);
+            }
+
+
             return(
                     <>
-                          <Modal show={show} onHide={handleClose} centered>
+                          <Modal 
+                              className="custom_modal_90"
+                              dialogClassName="custom_modal_90"
+                              show={show} 
+                              onHide={handleClose} 
+                              centered>
                             <Modal.Header closeButton>
                             <Modal.Title>Update Application</Modal.Title>
                             </Modal.Header>
@@ -96,7 +124,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                         <Card body bg="dark" text="white">
                                         {/* Company */}
                                             <Form.Group className="mb-3">
-                                              <Form.Label>Company</Form.Label>
+                                              <Form.Label>Company hmm</Form.Label>
                                               <Form.Control type="text" defaultValue={company} {...register("company")}/>
                                             </Form.Group>
                                             {/* Role */}
@@ -132,7 +160,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                                   <Card.Subtitle>
                                                     {/* skills input group */}
-                                                    <InputGroup className="mb-3">
+                                                    <InputGroup className="mb-3 mt-2">
                                                       {/* add button icon */}
                                                       <Button variant="dark" size="sm" onClick={addSkills}>
                                                         <VscAdd/>
@@ -157,13 +185,32 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                               Contacts
                                             </Card.Title>
                                             <Card.Subtitle>
-                                              <Button className="mt-1" variant="dark" size="sm">Add Contact</Button>
+
+
+                                            <InputGroup size="sm" className="mb-3 mt-2">
+                                              <FormControl aria-label="Name" placeholder="Name"/>
+                                              <FormControl aria-label="Email"  placeholder="Email"/>
+                                            </InputGroup>
+
+                                            <InputGroup size="sm" className="mb-3">
+                                              <FormControl aria-label="Role" placeholder="Role"/>
+                                              <FormControl aria-label="Comment"  placeholder="Comment"/>
+                                              <Button variant="dark" size="sm" >Add Contact</Button>
+                                            </InputGroup>
+
+                                           
+
                                             </Card.Subtitle>
                                           </Card>
+
+ 
                                         </Col>
+
                                     </Row>
 
                                   </Container>
+
+
                                   {/* End container */}
 
                                     {/* Form Submit Button */}
