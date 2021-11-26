@@ -233,9 +233,9 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                         {contact.name}
                                                       </Popover.Header>
                                                       <Popover.Body>
-                                                        <p>{`Email: ${contact.email}`}</p>
-                                                        <p>{`Role: ${contact.role}`}</p>
-                                                        <p>{`Comment: ${contact.comment}`}</p>
+                                                        <p><strong>Email:</strong>{` ${contact.email}`}</p>
+                                                        <p><strong>Role:</strong>{` ${contact.role}`}</p>
+                                                        <p><strong>Comment:</strong>{` ${contact.comment}`}</p>
                                                       </Popover.Body>
                                                   </Popover>
                                                   }
