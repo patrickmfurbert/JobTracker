@@ -94,6 +94,10 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
               setContactComment(event.target.value);
             }
 
+            const contactInfo = () => {
+              console.log(`Name: ${contactName}\nEmail: ${contactEmail}\nRole: ${contactRole}\nComment: ${contactComment}`);
+            }
+
 
             return(
                     <>
@@ -188,14 +192,14 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
 
                                             <InputGroup size="sm" className="mb-3 mt-2">
-                                              <FormControl aria-label="Name" placeholder="Name"/>
-                                              <FormControl aria-label="Email"  placeholder="Email"/>
+                                              <FormControl aria-label="Name" placeholder="Name" onChange={handleContactNameOnChange}/>
+                                              <FormControl aria-label="Email"  placeholder="Email" onChange={handleContactEmailOnChange}/>
                                             </InputGroup>
 
                                             <InputGroup size="sm" className="mb-3">
-                                              <FormControl aria-label="Role" placeholder="Role"/>
-                                              <FormControl aria-label="Comment"  placeholder="Comment"/>
-                                              <Button variant="dark" size="sm" >Add Contact</Button>
+                                              <FormControl aria-label="Role" placeholder="Role" onChange={handleContactRoleOnChange}/>
+                                              <FormControl aria-label="Comment"  placeholder="Comment" onChange={handleContactCommentOnChange}/>
+                                              <Button variant="dark" size="sm" onClick={contactInfo}>Add Contact</Button>
                                             </InputGroup>
 
                                            
