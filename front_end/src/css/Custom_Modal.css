@@ -1,0 +1,7 @@
+.badge_close:hover {
+    cursor: pointer;
+}
+
+.custom_modal_90{
+    min-width: 90%;
+}

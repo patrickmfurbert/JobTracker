@@ -1,0 +1,21 @@
+#skills_title{
+    text-align: center;
+}
+
+#skills_canvas{
+    margin        : 0;
+    padding       : 0;
+    display       : grid;
+    place-content : center;
+    min-height    : 100vh !important;
+
+    /* height: 100%;
+    width: 100%; */
+}
+
+#chart_container{
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

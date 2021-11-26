@@ -6,9 +6,6 @@ import axios from 'axios';
 
 export default function Current_Apps({user_id}){
 
-        // route for getting job apps
-        // let route = `http://149.28.113.234:5000/users/${user_id}/jobapps`;
-
         const [apps, setApps] = useState([]);
         const [malEffect, setMalEffect] = useState(true)
 
@@ -27,10 +24,8 @@ export default function Current_Apps({user_id}){
                     console.log("getting current apps")
                     console.log(res);
                     setApps(res.data);
-    
                } catch (error) {
                    console.log(error);
-    
                }
             }
             
@@ -39,17 +34,27 @@ export default function Current_Apps({user_id}){
         }, [user_id, malEffect]);
 
 
+        let style = {
+            height: '1px',
+            width: '92%',
+            color: 'black',
+            'marginLeft': 'auto',
+            'marginRight': 'auto'
+        }
+
         return(
 
                 <>
                     {/* Canvas for Current Apps */}
 
-                    <div id="current_apps_canvas">
+                     <h1 className="display-6 mt-4 mb-4" id="current_apps_title">Applications</h1>
+                     <hr style={style}/>
 
+                    <div id="current_apps_canvas">
 
                         {
                         apps.map( app => (
-                            <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} updateMal={updateApps}/>
+                            <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps}/>
                         ))
                         }
                     </div>

@@ -1,8 +1,14 @@
+#current_apps_title{
+    text-align: center;
+}
+
 #current_apps_canvas{
-    margin        : 10em;
+    margin        : 5em 10em;
     padding       : 0;
-    display       : grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
-    min-height    : 100vh;
+    /* min-height    : 100vh; */
 }

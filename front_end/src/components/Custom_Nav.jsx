@@ -1,4 +1,5 @@
 import { Navbar, Offcanvas, Nav, Container} from 'react-bootstrap';
+import '../css/Custom_Nav.css';
 
 import React from 'react';
 
@@ -11,7 +12,9 @@ export default function Custom_Nav({signup, update_mainapp}){
                     <Navbar bg="dark" variant="dark" expand={false}>
                         <Container fluid>
 
-                            <Navbar.Brand>Job Tracker</Navbar.Brand>
+                            <Navbar.Brand><div id="nav_title">Job Tracker</div></Navbar.Brand>
+
+
                             <Navbar.Toggle aria-controls="offcanvasNavbar" />
                                 <Navbar.Offcanvas
                                 id="offcanvasNavbar"
@@ -25,7 +28,9 @@ export default function Custom_Nav({signup, update_mainapp}){
                                     <Offcanvas.Body>
                                         <Nav className="justify-content-end flex-grow-1 pe-3">
                                             <Nav.Link onClick={() => update_mainapp("current_apps")}>Current Applications</Nav.Link>
-                                            <Nav.Link onClick={()=>update_mainapp("new_app")}>Add Application</Nav.Link>
+                                            <Nav.Link onClick={() => update_mainapp("new_app")}>Add Application</Nav.Link>
+                                            <Nav.Link onClick={() => update_mainapp("skills")}>Skills</Nav.Link>
+                                            <Nav.Link onClick={() => update_mainapp("contacts")}>Contacts</Nav.Link>
                                             <Nav.Link onClick={signup()}>Logout</Nav.Link>
                                         </Nav>
                                     </Offcanvas.Body>
