@@ -223,9 +223,12 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                                 (contact, index) => (
                                                 
                                                 <OverlayTrigger
+                                                  key={index}
                                                   placement="right"
                                                   overlay={
-                                                    <Popover id="popover-basic">
+                                                    <Popover  
+                                                      key={index}
+                                                      id="popover-basic">
                                                       <Popover.Header as="h3">
                                                         {contact.name}
                                                       </Popover.Header>
