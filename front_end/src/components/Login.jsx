@@ -9,6 +9,7 @@ import hidePwdImg from '../img/hide_password.svg';
 
 export default function Login({signup, loggedin, currentUser}) {
 
+
             // post route
             const route = 'https://jobtracker467.uc.r.appspot.com/auth/login';
 
@@ -42,6 +43,7 @@ export default function Login({signup, loggedin, currentUser}) {
                     <>
 
                         {/* Containers for the login */}
+
 
                         <div id="login_container" class="card">
 
