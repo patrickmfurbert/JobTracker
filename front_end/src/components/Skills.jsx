@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { Card } from 'react-bootstrap';
 import '../css/Skills.css';
 
-export default function Skills({user_id, updateSkills, width}){
+export default function Skills({user_id, updateView, width}){
 
     const [my_data, setData] = useState([]);
 
@@ -18,6 +18,8 @@ export default function Skills({user_id, updateSkills, width}){
         const getSkills = async () => {
             try {
                 var res = await axios.get(route);
+                //clear data
+                setData([]);
                 (Object.entries(res.data)).map(skill => setMyData(skill));
 
             } catch (error) {
@@ -25,7 +27,7 @@ export default function Skills({user_id, updateSkills, width}){
             }
         }
         getSkills();
-    }, [updateSkills]);
+    }, [updateView]);
 
     let style = {
             height: '1px',
@@ -39,7 +41,7 @@ export default function Skills({user_id, updateSkills, width}){
         <>
 
             <div className="dashboard_element_wrapper">
-                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
+                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills </h1>
                 <hr style={style}/>
                 
                 <div id="skills_canvas">
