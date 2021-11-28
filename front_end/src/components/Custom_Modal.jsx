@@ -148,7 +148,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                         <Card body bg="dark" text="white">
                                         {/* Company */}
                                             <Form.Group className="mb-3">
-                                              <Form.Label>Company hmm</Form.Label>
+                                              <Form.Label>Company</Form.Label>
                                               <Form.Control type="text" defaultValue={company} {...register("company")}/>
                                             </Form.Group>
                                             {/* Role */}
