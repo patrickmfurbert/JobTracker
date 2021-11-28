@@ -1,7 +1,11 @@
+#new_app_title{
+    text-align: center;
+}
+
 #new_app_canvas {
-    margin        : 0;
+    margin        : 4em 0;
     padding       : 0;
     display       : grid;
     place-content : center;
-    min-height    : 100vh;
+    min-height    : fit-content;
 }

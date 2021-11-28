@@ -54,6 +54,8 @@ export default function Registration({signup}) {
 
             return(
                     <>
+
+                    
                     {/* Container for Registration */}
                                 <div className="registration_container card">
                                 {/* Inner Container for Registration */}

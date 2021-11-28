@@ -47,12 +47,26 @@ export default function New_App({user_id, updateView}){
                 body: "THere was a problem with submission"
         }
 
+        let style = {
+            height: '1px',
+            width: '92%',
+            color: 'black',
+            'marginLeft': 'auto',
+            'marginRight': 'auto'
+        }
+
+
         return(
 
                 <>
                 {/* Component Container */}
                 <div className="dashboard_element_wrapper">
+
+                <h1 className="display-6 mt-4 mb-4" id="new_app_title">Create New Application</h1>
+                <hr style={style}/>
                     <div id="new_app_canvas">
+
+
                         {/* Container for New Application */}
                         <div className="new_app_container card">
                             {/* Inner Container for New Application */}
@@ -60,7 +74,7 @@ export default function New_App({user_id, updateView}){
                                 {/* Alert */}
                                 {show_alert && (submission_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={()=> setShowAlert(false)} message={success_message}/>)}
                                 {/* Title */}
-                                <h1 className="display-6">Add Job Application</h1>
+                                {/* <h1 className="display-6">Add Job Application</h1> */}
                     
                                 {/* Form */}
                                 <form onSubmit={handleSubmit(submit)}>
