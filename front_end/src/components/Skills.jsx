@@ -48,7 +48,7 @@ export default function Skills({user_id, updateView, width}){
         <>
 
             <div className="dashboard_element_wrapper">
-                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
+                <h1 className="display-6 mt-4 mb-4" id="skills_title">Required Skills Profile</h1>
                 <hr style={style}/>
                 
                 <div id="skills_canvas">

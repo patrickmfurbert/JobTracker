@@ -1,19 +1,18 @@
 import { Navbar, Offcanvas, Nav, Container} from 'react-bootstrap';
 import '../css/Custom_Nav.css';
-
-import React from 'react';
+import React, {useState} from 'react';
 
 
 export default function Custom_Nav({signup, update_mainapp, desktop}){
+
+
 
         return(
 
                 <>
                     <Navbar bg="dark" variant="dark" expand={false}>
                         <Container fluid>
-
                             <Navbar.Brand><div id="nav_title">Job Tracker </div></Navbar.Brand>
-
 
                             {
                                 (!desktop) ?

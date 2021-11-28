@@ -70,7 +70,6 @@ export default function New_App({user_id, updateView}){
                         {/* Container for New Application */}
                         <div className="new_app_container">
                             {/* Inner Container for New Application */}
-                            <div className="inner_new_app m-4">
                                 {/* Alert */}
                                 {show_alert && (submission_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={()=> setShowAlert(false)} message={success_message}/>)}
                                 {/* Title */}
@@ -98,7 +97,7 @@ export default function New_App({user_id, updateView}){
                                 <input type="submit" value="Submit Application" className="btn btn-dark mt-4 form-control"/>
                                 </form>
                             </div>
-                        </div>
+                        
                     </div>
                 </div>
 
