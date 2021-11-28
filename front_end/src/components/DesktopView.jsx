@@ -9,8 +9,17 @@ import '../css/DashBoard.css';
 export default function DesktopView({user_id, signup, width}){
 
         //handle rerender of Current Apps from New App
-        const [updateView, setUpdate] = useState(true)
-        const setUpdateView = () => setUpdate(!updateView)
+        const [updateView, changeView] = useState(true);
+        const setUpdateView = () => {
+            changeView(!updateView);
+        }
+
+        //handle rerender of Skills from Current Apps
+        const [updateSkills, changeSkills] = useState(true);
+        const setUpdateSkills = () =>{
+            console.log("updating skills");
+            changeSkills(!updateSkills);
+        }
         const desktop = true;
 
         return(
@@ -26,8 +35,8 @@ export default function DesktopView({user_id, signup, width}){
                             <div id="DashBoard_Desktop" className="dash">
 
                                 <div className="left_column">
-                                    <CURRENT_APPS user_id={user_id} updateView={updateView}/>
-                                    <SKILLS user_id={user_id} width={width}/>
+                                    <CURRENT_APPS user_id={user_id} updateView={updateView} updateSkills={setUpdateSkills}/>
+                                    <SKILLS user_id={user_id} width={width} updateView={updateSkills}/>
                                 </div>
 
                                 <div className="right_column">

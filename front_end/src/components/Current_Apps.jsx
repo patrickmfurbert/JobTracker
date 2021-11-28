@@ -4,7 +4,7 @@ import '../css/Current_Apps.css';
 import axios from 'axios';
 
 
-export default function Current_Apps({user_id, updateView}){
+export default function Current_Apps({user_id, updateView, updateSkills}){
 
         const [apps, setApps] = useState([]);
         const [malEffect, setMalEffect] = useState(true)
@@ -54,7 +54,7 @@ export default function Current_Apps({user_id, updateView}){
                             <div id="current_apps_canvas">
                                 {
                                 apps.map( app => (
-                                    <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps}/>
+                                    <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps} updateSkills={updateSkills}/>
                                 ))
                                 }
                             </div>

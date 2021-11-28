@@ -4,9 +4,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { Card } from 'react-bootstrap';
 import '../css/Skills.css';
 
-export default function Skills({user_id}){
+export default function Skills({user_id, updateSkills, width}){
 
-    // const [skills, setSkills] = useState([]);
     const [my_data, setData] = useState([]);
 
     useEffect(()=>{
@@ -26,7 +25,7 @@ export default function Skills({user_id}){
             }
         }
         getSkills();
-    }, []);
+    }, [updateSkills]);
 
     let style = {
             height: '1px',

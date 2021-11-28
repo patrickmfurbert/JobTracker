@@ -25,7 +25,9 @@ export default function New_App({user_id, updateView}){
                     await axios.post(route, {user_id, ...data});
                     success();
                     setShowAlert(true);
-                    updateView();
+                    if(updateView){
+                        updateView();
+                    }
                 
             } catch (error) {
                     console.log(error);
