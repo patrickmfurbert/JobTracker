@@ -14,6 +14,18 @@ export default function MobileView({user_id, signup, width}){
             setDisplay(name);
         }
 
+        //handle rerender of Skills from Current Apps
+        const [updateSkills, changeSkills] = useState(true);
+        const setUpdateSkills = () =>{
+            changeSkills(!updateSkills);
+        }
+
+        //handle rerender of contacts from Current Apps
+        const [updateContacts, changeContacts] = useState(true);
+        const setUpdateContacts = () => {
+                    changeContacts(!updateContacts);
+        }
+
         const desktop = false;
 
 
@@ -29,13 +41,13 @@ export default function MobileView({user_id, signup, width}){
                         {/* Sub Components */}
 
                             
-                            {(display === "current_apps") && <CURRENT_APPS user_id={user_id}/>}                        
+                            {(display === "current_apps") && <CURRENT_APPS user_id={user_id} updateSkills={setUpdateSkills} updateContacts={setUpdateContacts}/>}                        
 
                             {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
 
                             {(display === "skills") && <SKILLS user_id={user_id} width={width}/>}
 
-                            {(display === "contacts") &&  <CONTACTS user_id={user_id}/>}
+                            {(display === "contacts") &&  <CONTACTS user_id={user_id} updateView={updateContacts}/>}
 
 
                     </div>
