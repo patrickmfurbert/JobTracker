@@ -3,7 +3,7 @@
 }
 
 #current_apps_canvas{
-    margin        : 5em 10em;
+    margin        : 5em 5em;
     padding       : 0;
     display: flex;
     flex-wrap: wrap;

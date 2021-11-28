@@ -4,6 +4,7 @@ import NEW_APP from './New_App.jsx';
 import CURRENT_APPS from './Current_Apps.jsx';
 import SKILLS from './Skills.jsx';
 import '../css/MainApp.css';
+import '../css/DashBoard.css';
 
 export default function DesktopView({user_id, signup, width}){
 
@@ -27,17 +28,17 @@ export default function DesktopView({user_id, signup, width}){
                         {/* Sub Components */}
 
                             
-                            <div id="DashBoard_Desktop">
+                            <div id="DashBoard_Desktop" className="dash">
 
-                                <div className="left_column"></div>
+                                <div className="left_column">
+                                    <CURRENT_APPS user_id={user_id}/>
+                                    <SKILLS user_id={user_id}/>
+                                </div>
 
-                                <div className="right_column"></div>
+                                <div className="right_column">
+                                    <NEW_APP user_id={user_id}/>
+                                </div>
 
-                                
-                                {(display === "current_apps") && <CURRENT_APPS user_id={user_id}/>}
-                                {(display === "new_app") && <NEW_APP user_id={user_id}/>}
-                                {(display === "skills") && <SKILLS user_id={user_id}/>}
-                                {(display === "contacts") && <h1>ContactZ</h1>}
                             </div>
 
 

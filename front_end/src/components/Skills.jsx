@@ -42,41 +42,42 @@ export default function Skills({user_id}){
     return(
         <>
 
-            <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
-            <hr style={style}/>
-                    
-            <div id="skills_canvas">
-                { (my_data.length !== 0) &&
+            <div className="dashboard_element_wrapper">
+                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
+                <hr style={style}/>
                 
-                    <Card className="text-center">
-                        <Card.Body>
-                            <Card.Title>Required Skills</Card.Title>
-                            <div id="chart_container">
-                                <BarChart
-                                layout="horizontal"
-                                width={600}
-                                height={400}
-                                data={my_data}
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5,
-                                }}
-                                >
-                                <CartesianGrid horizontal={false} vertical={false} strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis allowDecimals={false}/>
-                                <Tooltip />
-                                {/* <Legend /> */}
-                                <Bar dataKey="amount" fill="#323834" />
-                                </BarChart>
-                            </div>
-                        </Card.Body>
-                    </Card>
-
-                    }   
-                </div>
+                <div id="skills_canvas">
+                    { (my_data.length !== 0) &&
+                
+                        <Card className="text-center">
+                            <Card.Body>
+                                <Card.Title>Required Skills</Card.Title>
+                                <div id="chart_container">
+                                    <BarChart
+                                    layout="horizontal"
+                                    width={600}
+                                    height={400}
+                                    data={my_data}
+                                    margin={{
+                                        top: 5,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5,
+                                    }}
+                                    >
+                                    <CartesianGrid horizontal={false} vertical={false} strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis allowDecimals={false}/>
+                                    <Tooltip />
+                                    {/* <Legend /> */}
+                                    <Bar dataKey="amount" fill="#323834" />
+                                    </BarChart>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                        }
+                    </div>
+            </div>
                     
                     
         </>

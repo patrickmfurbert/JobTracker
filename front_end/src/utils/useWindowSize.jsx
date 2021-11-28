@@ -12,13 +12,18 @@ export default function useWindowSize() {
   }
 
   React.useEffect(() => {
+
+    if(isSSR){
+      changeWindowSize();
+    }
+
     window.addEventListener("resize", changeWindowSize);
 
     //return functions insdie of useEffect hooks are 
     return () => {
       window.removeEventListener("resize", changeWindowSize);
     };
-  }, []);
+  }, [isSSR]);
 
   return windowSize;
 }

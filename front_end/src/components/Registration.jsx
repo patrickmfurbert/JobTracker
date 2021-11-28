@@ -57,52 +57,40 @@ export default function Registration({signup}) {
             return(
                     <>
                     {/* Container for Registration */}
-                        <div className="registration_container card">
-
-                        {/* Inner Container for Registration */}
-                                <div className="inner_registration card-body m-4">
-
-                                {/* Alert */}
-                                {show_alert && (registration_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={() => setShowAlert(false)} message={success_message}/>)}
-
-                                {/* Title */}
-                                <h1 className="display-6">Register New Account </h1>
-
-                                {/* Form  */}
-                                        <form onSubmit={handleSubmit(submit)}>
-
-                                        {/* First Name */}
-                                        <label htmlFor="firstname" className="form-label">First Name</label>
-                                        <input type="text" name="firstname" id="firstname" className="form-control" />
-
-                                        {/* Last Name */}
-                                        <label htmlFor="lastname" className="form-label">Last Name</label>
-                                        <input type="text" name="lastname" id="lastname" className="form-control" />
-
-                                        {/* Email */}
-                                        <label htmlFor="email" className="form-label">Email</label>
-                                        <input type="email" name="email" id="email" className="form-control" {...register("email")}/>
-
-                                        {/* Password */}
-                                        <label htmlFor="password" className="form-label">Password</label>
-                                        <div className="pwd-container">
-                                                <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"{...register("password")}/>
-                                                <img alt="..." title={isRevealPwd ? "Hide password" : "Show password"}
-                                                src={isRevealPwd ? hidePwdImg : showPwdImg}
-                                                onClick={() => setIsRevealPwd(prevState => !prevState)}/>
-                                        </div>
-
-                                        {/* Submit */}
-                                        <input type="submit" value="Register" className="btn btn-dark mt-4 form-control"/>
-
-
-                                        </form>
-
-                                        <div className="back_to_login mt-3">
-                                                <p class="text-center">Back to <span id="login_link" onClick={signup()}>Login</span></p>
+                                <div className="registration_container card">
+                                {/* Inner Container for Registration */}
+                                        <div className="inner_registration card-body m-4">
+                                        {/* Alert */}
+                                        {show_alert && (registration_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={() => setShowAlert(false)} message={success_message}/>)}
+                                        {/* Title */}
+                                        <h1 className="display-6">Register New Account </h1>
+                                        {/* Form  */}
+                                                <form onSubmit={handleSubmit(submit)}>
+                                                {/* First Name */}
+                                                <label htmlFor="firstname" className="form-label">First Name</label>
+                                                <input type="text" name="firstname" id="firstname" className="form-control" />
+                                                {/* Last Name */}
+                                                <label htmlFor="lastname" className="form-label">Last Name</label>
+                                                <input type="text" name="lastname" id="lastname" className="form-control" />
+                                                {/* Email */}
+                                                <label htmlFor="email" className="form-label">Email</label>
+                                                <input type="email" name="email" id="email" className="form-control" {...register("email")}/>
+                                                {/* Password */}
+                                                <label htmlFor="password" className="form-label">Password</label>
+                                                <div className="pwd-container">
+                                                        <input type={isRevealPwd ? "text" : "password"} name="password" id="password" className="form-control"{...register("password")}/>
+                                                        <img alt="..." title={isRevealPwd ? "Hide password" : "Show password"}
+                                                        src={isRevealPwd ? hidePwdImg : showPwdImg}
+                                                        onClick={() => setIsRevealPwd(prevState => !prevState)}/>
+                                                </div>
+                                                {/* Submit */}
+                                                <input type="submit" value="Register" className="btn btn-dark mt-4 form-control"/>
+                                                </form>
+                                                <div className="back_to_login mt-3">
+                                                        <p class="text-center">Back to <span id="login_link" onClick={signup()}>Login</span></p>
+                                                </div>
                                         </div>
                                 </div>
-                        </div>
                     </>
             );
 }
