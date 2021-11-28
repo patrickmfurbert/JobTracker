@@ -14,7 +14,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             // route for deleting app
             const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
 
-            // useForm hook for updating 
+            // useForm hook for updating application
             const {register, handleSubmit} = useForm();
             const [submission_error, setSubmissionError] = useState(false);
 
@@ -43,6 +43,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
               }
             }
 
+
             //success and error object alert messages
             const success_message = {
                 header: "Success",
@@ -54,6 +55,8 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                     body: "THere was a problem with the update"
             }
 
+
+            // ************************ Skills *****************************//
             // Skills update
             const [skill_text, setSkillText] = useState("");
             const [job_skills, updateJobSkills] = useState(skills ? [...skills] : []);
@@ -74,6 +77,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             }
 
 
+            // ************************* Contacts *****************************//
             //contact information
             const [my_contacts, updateContacts] = useState(contacts ? [...contacts] : []);
 
@@ -197,7 +201,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                             </Card>
 
-                                                                                      {/* Contacts */}
+                                          {/* Contacts */}
                                           <Card body bg="secondary" text="white" className="mt-3">
                                             
                                             <Card.Title>
