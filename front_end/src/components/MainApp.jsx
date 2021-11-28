@@ -12,7 +12,7 @@ export default function MainApp({user_id, signup}){
         return(
 
                 <>
-                    {(desktop) ? <DESKTOPVIEW user_id={user_id} signup={signup} width={width}/> : <MOBILEVIEW user_id={user_id} signup={signup}/>}
+                    {(desktop) ? <DESKTOPVIEW user_id={user_id} signup={signup} width={width}/> : <MOBILEVIEW user_id={user_id} signup={signup} width={width}/>}
                 </>
 
         );

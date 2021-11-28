@@ -5,7 +5,7 @@ import CURRENT_APPS from './Current_Apps.jsx';
 import SKILLS from './Skills.jsx';
 import '../css/MainApp.css';
 
-export default function MobileView({user_id, signup}){
+export default function MobileView({user_id, signup, width}){
 
         const [display, setDisplay] = useState("current_apps");
 
@@ -32,7 +32,7 @@ export default function MobileView({user_id, signup}){
 
                             {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
 
-                            {(display === "skills") && <SKILLS user_id={user_id}/>}
+                            {(display === "skills") && <SKILLS user_id={user_id} width={width}/>}
 
                             {(display === "contacts") && <h1>ContactZ</h1>}
 

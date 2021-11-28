@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.new_app_container{
+    min-width: 90%;
+}
+
 #new_app_canvas {
     margin        : 4em 0;
     padding       : 0;

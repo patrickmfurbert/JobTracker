@@ -35,26 +35,31 @@ export default function Skills({user_id, updateView, width}){
             color: 'black',
             'marginLeft': 'auto',
             'marginRight': 'auto'
-        }
+    }
+
+    let my_width = width/2;
+
+    if(width > 700){
+        var chart_width = my_width - 100;
+    } else {
+        var chart_width = width - 100;
+    }
 
     return(
         <>
 
             <div className="dashboard_element_wrapper">
-                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills </h1>
+                <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
                 <hr style={style}/>
                 
                 <div id="skills_canvas">
                     { (my_data.length !== 0) &&
                 
-                        <Card className="text-center">
-                            <Card.Body>
-                                <Card.Title>Required Skills</Card.Title>
                                 <div id="chart_container">
                                     <BarChart
                                     layout="horizontal"
-                                    width={600}
-                                    height={400}
+                                    width={chart_width}
+                                    height={chart_width-200}
                                     data={my_data}
                                     margin={{
                                         top: 5,
@@ -71,8 +76,6 @@ export default function Skills({user_id, updateView, width}){
                                     <Bar dataKey="amount" fill="#323834" />
                                     </BarChart>
                                 </div>
-                            </Card.Body>
-                        </Card>
                         }
                     </div>
             </div>
