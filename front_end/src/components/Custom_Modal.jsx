@@ -9,7 +9,7 @@ import '../css/Custom_Modal.css';
 
 
 
-export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, skills, contacts, updateMal, updateSkills}) {
+export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, skills, contacts, updateMal, updateSkills, updateMyContacts}) {
 
             // route for deleting app
             const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
@@ -34,6 +34,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                 console.log(res);
                 updateMal();
                 updateSkills();
+                updateMyContacts();
                 success();
                 setShowAlert(true);
               } catch (error) {

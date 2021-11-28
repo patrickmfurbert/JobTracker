@@ -7,7 +7,7 @@ import axios from 'axios';
 import CUSTOM_MODAL from './Custom_Modal.jsx'
 
 
-export default function Job_App({app_id, user_id, company, role, application_date, location, description, skills, contacts, updateMal, updateSkills}){
+export default function Job_App({app_id, user_id, company, role, application_date, location, description, skills, contacts, updateMal, updateSkills, updateContacts}){
 
         // route for deleting app
         const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
@@ -49,7 +49,7 @@ export default function Job_App({app_id, user_id, company, role, application_dat
                         </Card>
                     </div>
 
-                    <CUSTOM_MODAL show={show} handleClose={handleClose} app_id={app_id} user_id={user_id} company={company} role={role} application_date={application_date} location={location} description={description} skills={skills} contacts={contacts} updateMal={updateMal} updateSkills={updateSkills}/>
+                    <CUSTOM_MODAL show={show} handleClose={handleClose} app_id={app_id} user_id={user_id} company={company} role={role} application_date={application_date} location={location} description={description} skills={skills} contacts={contacts} updateMal={updateMal} updateSkills={updateSkills} updateMyContacts={updateContacts}/>
                 </>
 
         );

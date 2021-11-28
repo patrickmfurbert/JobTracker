@@ -4,7 +4,7 @@ import '../css/Contacts.css';
 import axios from 'axios';
 
 
-export default function Contacts({user_id}) {
+export default function Contacts({user_id, updateView}) {
 
     const [apps, setApps] = useState([]);
 
@@ -17,6 +17,10 @@ export default function Contacts({user_id}) {
         const getApps = async () => {
             try {
                 var res = await axios.get(route);
+                //clear data
+                setApps([]);
+
+                //reset
                 (res.data).map(data =>{
                     if(Array.isArray(data.contacts) && (data.contacts.length !== 0)){
                         (data.contacts).map( my_contact => {
@@ -35,7 +39,7 @@ export default function Contacts({user_id}) {
         
         getApps();
     
-    }, [user_id]);
+    }, [user_id, updateView]);
 
     let style = {
         height: '1px',

@@ -4,7 +4,7 @@ import '../css/Current_Apps.css';
 import axios from 'axios';
 
 
-export default function Current_Apps({user_id, updateView, updateSkills}){
+export default function Current_Apps({user_id, updateView, updateSkills, updateContacts}){
 
         const [apps, setApps] = useState([]);
         const [malEffect, setMalEffect] = useState(true)
@@ -21,8 +21,6 @@ export default function Current_Apps({user_id, updateView, updateSkills}){
             const getApps = async () => {
                 try {
                     var res = await axios.get(route);
-                    console.log("getting current apps")
-                    console.log(res);
                     setApps(res.data);
                } catch (error) {
                    console.log(error);
@@ -53,7 +51,7 @@ export default function Current_Apps({user_id, updateView, updateSkills}){
                             <div id="current_apps_canvas">
                                 {
                                 apps.map( app => (
-                                    <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps} updateSkills={updateSkills}/>
+                                    <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps} updateSkills={updateSkills} updateContacts={updateContacts}/>
                                 ))
                                 }
                             </div>

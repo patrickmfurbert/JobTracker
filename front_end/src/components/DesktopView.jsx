@@ -19,9 +19,15 @@ export default function DesktopView({user_id, signup, width}){
         //handle rerender of Skills from Current Apps
         const [updateSkills, changeSkills] = useState(true);
         const setUpdateSkills = () =>{
-            console.log("updating skills");
             changeSkills(!updateSkills);
         }
+
+        //handle rerender of contacts from Current Apps
+        const [updateContacts, changeContacts] = useState(true);
+        const setUpdateContacts = () => {
+            changeContacts(!updateContacts);
+        }
+
         const desktop = true;
 
         return(
@@ -37,13 +43,13 @@ export default function DesktopView({user_id, signup, width}){
                             <div id="DashBoard_Desktop" className="dash">
 
                                 <div className="left_column">
-                                    <CURRENT_APPS user_id={user_id} updateView={updateView} updateSkills={setUpdateSkills}/>
+                                    <CURRENT_APPS user_id={user_id} updateView={updateView} updateSkills={setUpdateSkills} updateContacts={setUpdateContacts}/>
                                     <SKILLS user_id={user_id} width={width} updateView={updateSkills}/>
                                 </div>
 
                                 <div className="right_column">
                                     <NEW_APP user_id={user_id} updateView={setUpdateView}/>
-                                    <CONTACTS user_id={user_id}/>
+                                    <CONTACTS user_id={user_id} updateView={updateContacts}/>
                                 </div>
 
                             </div>
