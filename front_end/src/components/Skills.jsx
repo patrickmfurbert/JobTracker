@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { Card } from 'react-bootstrap';
 import '../css/Skills.css';
 
 export default function Skills({user_id, updateView, width}){
@@ -27,7 +26,7 @@ export default function Skills({user_id, updateView, width}){
             }
         }
         getSkills();
-    }, [updateView]);
+    }, [updateView, user_id]);
 
     let style = {
             height: '1px',
@@ -38,11 +37,11 @@ export default function Skills({user_id, updateView, width}){
     }
 
     let my_width = width/2;
-
+    let chart_width;
     if(width > 700){
-        var chart_width = my_width - 100;
+        chart_width = my_width - 100;
     } else {
-        var chart_width = width - 100;
+        chart_width = width - 100;
     }
 
     return(
