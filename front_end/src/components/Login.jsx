@@ -24,7 +24,6 @@ export default function Login({signup, loggedin, currentUser}) {
                 console.log(data);
                 try {
                     var res = await axios.post(route, data);
-                    console.log(res);
                     if(res.data.state === "Success"){
                         currentUser(res.data.id);
                         loggedin();

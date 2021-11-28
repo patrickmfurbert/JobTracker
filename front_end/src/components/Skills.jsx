@@ -19,9 +19,6 @@ export default function Skills({user_id}){
         const getSkills = async () => {
             try {
                 var res = await axios.get(route);
-                console.log("getting skills data");
-                console.log(Object.entries(res.data));
-                console.log("mapping");
                 (Object.entries(res.data)).map(skill => setMyData(skill));
 
             } catch (error) {

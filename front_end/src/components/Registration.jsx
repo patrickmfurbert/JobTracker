@@ -29,9 +29,7 @@ export default function Registration({signup}) {
         // api call
         const submit = async data => {
                 try {
-                        console.log(data);
-                        var res = await axios.post(route, data);
-                        console.log(res);
+                        await axios.post(route, data);
                         success();
                         setShowAlert(true);
                         

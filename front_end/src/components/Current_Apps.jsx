@@ -4,7 +4,7 @@ import '../css/Current_Apps.css';
 import axios from 'axios';
 
 
-export default function Current_Apps({user_id}){
+export default function Current_Apps({user_id, updateView}){
 
         const [apps, setApps] = useState([]);
         const [malEffect, setMalEffect] = useState(true)
@@ -31,7 +31,7 @@ export default function Current_Apps({user_id}){
             
             getApps();
         
-        }, [user_id, malEffect]);
+        }, [user_id, malEffect, updateView]);
 
 
         let style = {

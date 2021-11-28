@@ -8,12 +8,9 @@ import '../css/DashBoard.css';
 
 export default function DesktopView({user_id, signup, width}){
 
-        const [display, setDisplay] = useState("current_apps");
-
-        const changeDisplay = function (name) {
-            setDisplay(name);
-        }
-
+        //handle rerender of Current Apps from New App
+        const [updateView, setUpdate] = useState(true)
+        const setUpdateView = () => setUpdate(!updateView)
         const desktop = true;
 
         return(
@@ -23,20 +20,18 @@ export default function DesktopView({user_id, signup, width}){
                     <div id="MainAppContainer">
 
                         {/* Navigation */}
-                        <CUSTOM_NAV signup={signup} update_mainapp={changeDisplay} desktop={desktop}/>
+                        <CUSTOM_NAV signup={signup} desktop={desktop}/>
 
-                        {/* Sub Components */}
-
-                            
+                            {/* Sub Components */}                            
                             <div id="DashBoard_Desktop" className="dash">
 
                                 <div className="left_column">
-                                    <CURRENT_APPS user_id={user_id}/>
-                                    <SKILLS user_id={user_id}/>
+                                    <CURRENT_APPS user_id={user_id} updateView={updateView}/>
+                                    <SKILLS user_id={user_id} width={width}/>
                                 </div>
 
                                 <div className="right_column">
-                                    <NEW_APP user_id={user_id}/>
+                                    <NEW_APP user_id={user_id} updateView={setUpdateView}/>
                                 </div>
 
                             </div>

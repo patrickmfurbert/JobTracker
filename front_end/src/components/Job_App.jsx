@@ -15,8 +15,7 @@ export default function Job_App({app_id, user_id, company, role, application_dat
         // implement function to delete application
         const delete_app = async () => {
             try {
-                var res = await axios.delete(route);
-                console.log(res);
+                await axios.delete(route);
                 updateMal();
             } catch (error) {
                 console.log(error);

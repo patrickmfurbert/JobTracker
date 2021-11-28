@@ -6,7 +6,7 @@ import CUSTOM_ALERT from './Custom_Alert.jsx';
 import '../css/New_App.css';
 
 
-export default function New_App({user_id}){
+export default function New_App({user_id, updateView}){
 
         // post route
         const route = 'https://jobtracker467.uc.r.appspot.com/jobapps';
@@ -22,10 +22,10 @@ export default function New_App({user_id}){
 
         const submit = async data => {
             try {
-                    var res = axios.post(route, {user_id, ...data});
-                    console.log(res);
+                    await axios.post(route, {user_id, ...data});
                     success();
                     setShowAlert(true);
+                    updateView();
                 
             } catch (error) {
                     console.log(error);
