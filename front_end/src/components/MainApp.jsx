@@ -9,6 +9,12 @@ export default function MainApp({user_id, signup}){
         const { width } = useWindowSize();
         const desktop = width > 700 ? true : false;
 
+        if(desktop){
+                console.log(`desktop: ${width}`)
+        } else {
+                console.log(`mobile: ${width}`)
+        }
+
         return(
 
                 <>

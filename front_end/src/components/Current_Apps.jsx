@@ -33,7 +33,6 @@ export default function Current_Apps({user_id, updateView, updateSkills}){
         
         }, [user_id, malEffect, updateView]);
 
-
         let style = {
             height: '1px',
             width: '92%',

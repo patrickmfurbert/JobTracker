@@ -3,6 +3,8 @@ import CUSTOM_NAV from './Custom_Nav.jsx';
 import NEW_APP from './New_App.jsx';
 import CURRENT_APPS from './Current_Apps.jsx';
 import SKILLS from './Skills.jsx';
+import CONTACTS from './Contacts.jsx';
+
 import '../css/MainApp.css';
 import '../css/DashBoard.css';
 
@@ -41,6 +43,7 @@ export default function DesktopView({user_id, signup, width}){
 
                                 <div className="right_column">
                                     <NEW_APP user_id={user_id} updateView={setUpdateView}/>
+                                    <CONTACTS user_id={user_id}/>
                                 </div>
 
                             </div>

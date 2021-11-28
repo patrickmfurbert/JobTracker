@@ -3,6 +3,7 @@ import CUSTOM_NAV from './Custom_Nav.jsx';
 import NEW_APP from './New_App.jsx';
 import CURRENT_APPS from './Current_Apps.jsx';
 import SKILLS from './Skills.jsx';
+import CONTACTS from './Contacts.jsx';
 import '../css/MainApp.css';
 
 export default function MobileView({user_id, signup, width}){
@@ -34,7 +35,7 @@ export default function MobileView({user_id, signup, width}){
 
                             {(display === "skills") && <SKILLS user_id={user_id} width={width}/>}
 
-                            {(display === "contacts") && <h1>ContactZ</h1>}
+                            {(display === "contacts") &&  <CONTACTS user_id={user_id}/>}
 
 
                     </div>
