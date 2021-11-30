@@ -1,3 +1,7 @@
 #contacts_title{
     text-align: center;
 }
+
+.contacts_canvas{
+    overflow-x: scroll;
+}
