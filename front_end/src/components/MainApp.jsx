@@ -7,7 +7,7 @@ import useWindowSize from '../utils/useWindowSize.jsx';
 export default function MainApp({user_id, signup}){
 
         const { width } = useWindowSize();
-        const desktop = width > 700 ? true : false;
+        const desktop = width > 900 ? true : false;
 
         if(desktop){
                 console.log(`desktop: ${width}`)

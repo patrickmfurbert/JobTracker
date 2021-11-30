@@ -94,7 +94,7 @@ export default function New_App({user_id, updateView}){
                                 <textarea className="form-control mt-2 mb-1" name="job_description" id="" cols="30" rows="10" {...register("description")}></textarea>
                                 {/* Submit */}
                     
-                                <input type="submit" value="Submit Application" className="btn btn-dark mt-4 form-control"/>
+                                <input type="submit" value="Submit Application" className="my_button mt-4 form-control"/>
                                 </form>
                             </div>
                         

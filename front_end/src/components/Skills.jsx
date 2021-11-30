@@ -38,7 +38,7 @@ export default function Skills({user_id, updateView, width}){
 
     let my_width = width/2;
     let chart_width;
-    if(width > 700){
+    if(width > 900){
         chart_width = my_width - 100;
     } else {
         chart_width = width - 100;
