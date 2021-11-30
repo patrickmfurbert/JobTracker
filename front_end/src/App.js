@@ -4,6 +4,7 @@ import MainApp from './components/MainApp.jsx';
 import React, { useState } from 'react';
 import './css/App.css';
 
+
 export default function App() {
 
   const [displayLogin, setDisplayLogin] = useState(true);
@@ -26,11 +27,11 @@ export default function App() {
 
   return (
       <>
-        <div id="app_container">
-                  {!displayApp && displayLogin && <Login signup={()=>showRegistration} loggedin={showApp} currentUser={setUser}/>}
-                  {!displayApp && !displayLogin && <Registration signup={()=>showRegistration}/>}
-                  {displayApp && <MainApp user_id={user_id} signup={()=>showApp}/>}
-        </div>
+          <div id="app_container">
+                    {!displayApp && displayLogin && <Login signup={()=>showRegistration} loggedin={showApp} currentUser={setUser}/>}
+                    {!displayApp && !displayLogin && <Registration signup={()=>showRegistration}/>}
+                    {displayApp && <MainApp user_id={user_id} signup={()=>showApp}/>}
+          </div>
       </>
   );
 }

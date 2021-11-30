@@ -4,6 +4,10 @@
     width: 100%;
     min-width: 100vw;
     background-color: #757575;
+    background-image: url("../img/tracker_2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #DashBoard_Desktop{
