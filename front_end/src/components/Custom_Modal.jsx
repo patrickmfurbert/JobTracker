@@ -9,12 +9,12 @@ import '../css/Custom_Modal.css';
 
 
 
-export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, skills, contacts, updateMal}) {
+export default function Custom_Modal({show, handleClose, user_id, app_id, company, role, application_date, location, description, skills, contacts, updateMal, updateSkills, updateMyContacts}) {
 
             // route for deleting app
             const route = `https://jobtracker467.uc.r.appspot.com/jobapps/${app_id}`;
 
-            // useForm hook for updating 
+            // useForm hook for updating application
             const {register, handleSubmit} = useForm();
             const [submission_error, setSubmissionError] = useState(false);
 
@@ -33,6 +33,8 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                 var res = await axios.put(route, {user_id, skills, contacts, ...data});
                 console.log(res);
                 updateMal();
+                updateSkills();
+                updateMyContacts();
                 success();
                 setShowAlert(true);
               } catch (error) {
@@ -41,6 +43,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                 setShowAlert(true);
               }
             }
+
 
             //success and error object alert messages
             const success_message = {
@@ -53,6 +56,8 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                     body: "THere was a problem with the update"
             }
 
+
+            // ************************ Skills *****************************//
             // Skills update
             const [skill_text, setSkillText] = useState("");
             const [job_skills, updateJobSkills] = useState(skills ? [...skills] : []);
@@ -73,6 +78,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
             }
 
 
+            // ************************* Contacts *****************************//
             //contact information
             const [my_contacts, updateContacts] = useState(contacts ? [...contacts] : []);
 
@@ -142,7 +148,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
                                         <Card body bg="dark" text="white">
                                         {/* Company */}
                                             <Form.Group className="mb-3">
-                                              <Form.Label>Company hmm</Form.Label>
+                                              <Form.Label>Company</Form.Label>
                                               <Form.Control type="text" defaultValue={company} {...register("company")}/>
                                             </Form.Group>
                                             {/* Role */}
@@ -196,7 +202,7 @@ export default function Custom_Modal({show, handleClose, user_id, app_id, compan
 
                                             </Card>
 
-                                                                                      {/* Contacts */}
+                                          {/* Contacts */}
                                           <Card body bg="secondary" text="white" className="mt-3">
                                             
                                             <Card.Title>

@@ -10,6 +10,10 @@
     top: 8px;
   }
 
+.back_to_login{
+  color: #FFF;
+}
+
 #login_link {
   text-decoration: underline;
   color: blue;

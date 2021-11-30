@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { Card } from 'react-bootstrap';
 import '../css/Skills.css';
 
-export default function Skills({user_id}){
+export default function Skills({user_id, updateView, width}){
 
-    // const [skills, setSkills] = useState([]);
     const [my_data, setData] = useState([]);
 
     useEffect(()=>{
@@ -19,9 +17,8 @@ export default function Skills({user_id}){
         const getSkills = async () => {
             try {
                 var res = await axios.get(route);
-                console.log("getting skills data");
-                console.log(Object.entries(res.data));
-                console.log("mapping");
+                //clear data
+                setData([]);
                 (Object.entries(res.data)).map(skill => setMyData(skill));
 
             } catch (error) {
@@ -29,7 +26,7 @@ export default function Skills({user_id}){
             }
         }
         getSkills();
-    }, []);
+    }, [updateView, user_id]);
 
     let style = {
             height: '1px',
@@ -37,46 +34,50 @@ export default function Skills({user_id}){
             color: 'black',
             'marginLeft': 'auto',
             'marginRight': 'auto'
-        }
+    }
+
+    let my_width = width/2;
+    let chart_width;
+    if(width > 900){
+        chart_width = my_width - 100;
+    } else {
+        chart_width = width - 100;
+    }
 
     return(
         <>
 
-            <h1 className="display-6 mt-4 mb-4" id="skills_title">Skills</h1>
-            <hr style={style}/>
-                    
-            <div id="skills_canvas">
-                { (my_data.length !== 0) &&
+            <div className="dashboard_element_wrapper">
+                <h1 className="display-6 mt-4 mb-4" id="skills_title">Required Skills Profile</h1>
+                <hr style={style}/>
                 
-                    <Card className="text-center">
-                        <Card.Body>
-                            <Card.Title>Required Skills</Card.Title>
-                            <div id="chart_container">
-                                <BarChart
-                                layout="horizontal"
-                                width={600}
-                                height={400}
-                                data={my_data}
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5,
-                                }}
-                                >
-                                <CartesianGrid horizontal={false} vertical={false} strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis allowDecimals={false}/>
-                                <Tooltip />
-                                {/* <Legend /> */}
-                                <Bar dataKey="amount" fill="#323834" />
-                                </BarChart>
-                            </div>
-                        </Card.Body>
-                    </Card>
-
-                    }   
-                </div>
+                <div id="skills_canvas">
+                    { (my_data.length !== 0) &&
+                
+                                <div id="chart_container">
+                                    <BarChart
+                                    layout="horizontal"
+                                    width={chart_width}
+                                    height={chart_width-200}
+                                    data={my_data}
+                                    margin={{
+                                        top: 5,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5,
+                                    }}
+                                    >
+                                    <CartesianGrid horizontal={false} vertical={false} strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis allowDecimals={false}/>
+                                    <Tooltip />
+                                    {/* <Legend /> */}
+                                    <Bar dataKey="amount" fill="#323834" />
+                                    </BarChart>
+                                </div>
+                        }
+                    </div>
+            </div>
                     
                     
         </>

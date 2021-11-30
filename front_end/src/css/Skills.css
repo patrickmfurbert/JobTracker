@@ -7,7 +7,7 @@
     padding       : 0;
     display       : grid;
     place-content : center;
-    min-height    : 100vh !important;
+    min-height    : fit-content;
 
     /* height: 100%;
     width: 100%; */

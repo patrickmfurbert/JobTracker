@@ -1,41 +1,24 @@
-import React, { useState } from 'react';
-import CUSTOM_NAV from './Custom_Nav.jsx';
-import NEW_APP from './New_App.jsx';
-import CURRENT_APPS from './Current_Apps.jsx';
-import SKILLS from './Skills.jsx';
-import '../css/MainApp.css';
+import React from 'react';
+import MOBILEVIEW from './MobileView.jsx';
+import DESKTOPVIEW from './DesktopView.jsx';
+import useWindowSize from '../utils/useWindowSize.jsx';
+
 
 export default function MainApp({user_id, signup}){
 
-        const [display, setDisplay] = useState("current_apps");
+        const { width } = useWindowSize();
+        const desktop = width > 900 ? true : false;
 
-        const changeDisplay = function (name) {
-            setDisplay(name);
+        if(desktop){
+                console.log(`desktop: ${width}`)
+        } else {
+                console.log(`mobile: ${width}`)
         }
 
         return(
 
                 <>
-                    {/* Main App Canvas */}
-                    <div id="MainAppContainer">
-
-                        {/* Navigation */}
-                        <CUSTOM_NAV signup={signup} update_mainapp={changeDisplay}/>
-
-                        {/* Sub Components */}
-
-                            
-                            {(display === "current_apps") && <CURRENT_APPS user_id={user_id}/>}                        
-
-                            {(display === "new_app") && <NEW_APP user_id={user_id}/>} 
-
-                            {(display === "skills") && <SKILLS user_id={user_id}/>}
-
-                            {(display === "contacts") && <h1>ContactZ</h1>}
-
-
-                    </div>
-
+                    {(desktop) ? <DESKTOPVIEW user_id={user_id} signup={signup} width={width}/> : <MOBILEVIEW user_id={user_id} signup={signup} width={width}/>}
                 </>
 
         );

@@ -9,6 +9,7 @@ import hidePwdImg from '../img/hide_password.svg';
 
 export default function Login({signup, loggedin, currentUser}) {
 
+
             // post route
             const route = 'https://jobtracker467.uc.r.appspot.com/auth/login';
 
@@ -23,7 +24,6 @@ export default function Login({signup, loggedin, currentUser}) {
                 console.log(data);
                 try {
                     var res = await axios.post(route, data);
-                    console.log(res);
                     if(res.data.state === "Success"){
                         currentUser(res.data.id);
                         loggedin();
@@ -43,9 +43,10 @@ export default function Login({signup, loggedin, currentUser}) {
 
                         {/* Containers for the login */}
 
-                        <div id="login_container" class="card">
 
-                            <div className="card-body m-4 mb-0 pb-1">
+                        <div className="login_registration_container">
+
+                            <div className="login_inner m-4 mb-0 pb-1">
 
                                 {/* Logo Area */}
 
@@ -80,7 +81,7 @@ export default function Login({signup, loggedin, currentUser}) {
 
                                     {isInValidLogin && <div className="text-danger">Invalid Username or Password</div>}
 
-                                    <input type="submit" value="Login" className="btn btn-dark mt-4 form-control"/>
+                                    <input type="submit" value="Login" className="my_button mt-4 form-control"/>
 
                                 </form>
 
