@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import JOB_APP from './Job_App.jsx';
 import '../css/Current_Apps.css';
 import axios from 'axios';
-import { Spinner } from 'react-bootstrap';
 
 
 export default function Current_Apps({user_id, updateView, updateSkills, updateContacts}){
@@ -57,12 +56,12 @@ export default function Current_Apps({user_id, updateView, updateSkills, updateC
                          
                             <div id="current_apps_canvas">
                                 {
-                                (apps.length === 0) ? 
-                                <div className="text-center">
-                                    <div className="spinner-border" style={style2} role="status">
-                                    <span className="sr-only">Loading...</span>
-                                    </div>
-                                </div> :
+                                // (apps.length === 0) ? 
+                                // <div className="text-center">
+                                //     <div className="spinner-border" style={style2} role="status">
+                                //     <span className="sr-only">Loading...</span>
+                                //     </div>
+                                // </div> :
                                 apps.map( app => (
                                     <JOB_APP key={app.id} app_id={app.id} user_id={app.user_id} company={app.company} role={app.role} application_date={app.application_date} location={app.location} description={app.description} skills={app.skills} contacts={app.contacts} updateMal={updateApps} updateSkills={updateSkills} updateContacts={updateContacts}/>
                                 ))
