@@ -57,13 +57,13 @@ export default function Registration({signup}) {
 
                     
                     {/* Container for Registration */}
-                                <div className="registration_container card">
+                                <div className="login_registration_container">
                                 {/* Inner Container for Registration */}
-                                        <div className="inner_registration card-body m-4">
+                                        <div className="inner_registration m-4">
                                         {/* Alert */}
                                         {show_alert && (registration_error ? <CUSTOM_ALERT variant="danger" onClose={() => setShowAlert(false)} message={error_message}/>:<CUSTOM_ALERT variant="success" onClose={() => setShowAlert(false)} message={success_message}/>)}
                                         {/* Title */}
-                                        <h1 className="display-6">Register New Account </h1>
+                                        <h1 className="display-6 registration_title">Register New Account </h1>
                                         {/* Form  */}
                                                 <form onSubmit={handleSubmit(submit)}>
                                                 {/* First Name */}
@@ -84,7 +84,7 @@ export default function Registration({signup}) {
                                                         onClick={() => setIsRevealPwd(prevState => !prevState)}/>
                                                 </div>
                                                 {/* Submit */}
-                                                <input type="submit" value="Register" className="btn btn-dark mt-4 form-control"/>
+                                                <input type="submit" value="Register" className="my_button mt-4 form-control"/>
                                                 </form>
                                                 <div className="back_to_login mt-3">
                                                         <p class="text-center">Back to <span id="login_link" onClick={signup()}>Login</span></p>
